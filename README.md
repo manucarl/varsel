@@ -1,0 +1,1 @@
+# Some things the NBPSS prior can do as shown in the [paper](https://projecteuclid.org/journals/bayesian-analysis/volume-16/issue-2/Bayesian-Effect-Selection-in-Structured-Additive-Distributional-Regression-Models/10.1214/20-BA1214.full)
