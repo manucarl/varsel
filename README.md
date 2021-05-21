@@ -10,7 +10,7 @@ All results where obtained via BayesX.
 3. Simulated effect samples 
 
 ##  [Housing Prices](immo)
-**Effect Selection in hierarchical location-scale model with spatial heterogenity**
+**Effect Selection in hierarchical location-scale model with spatial heterogeneity**\\
 Data is not available publicly, unfortunately.
 
 ![image](/immo/immo_maps.png)
@@ -18,20 +18,20 @@ Data is not available publicly, unfortunately.
 ---
 
 ##  [Nigeria Undernutrition](nigeria)
-**Effect Selection for predictors of all parameters ($\mu$) in bivariate Gaussian location-scale model of undernutrition scores**
+**Effect Selection for predictors of all parameters (mu1, mu2, sigma1, sigma2, rho) in bivariate Gaussian location-scale model of undernutrition scores**\\
 Data is not available publicly, unfortunately.
 ![image](/nigeria/niger_bivn_nonlin.png)
 
 ---
 
 ##  [Patent](nigeria)
-**Effect Selection for predictors of lambda and pi in zero-inflated Poisson model on patent citation data. Calculates various (proper) scores for 10-Fold CV.**
+**Effect Selection for predictors of lambda and pi in zero-inflated Poisson model on patent citation data. Calculates various (proper) scores for 10-Fold CV.**\\
 Data is available.
 
 ---
 
 ##  [Simulated Effects](effect_sims)
-**Simulates data for effect selection in simple Gaussian mean model and plots recomposed effect estimates on basis of linear samples and samples of nonlinear deviations.**
+**Simulates data for effect selection in simple Gaussian mean model and plots recomposed effect estimates on basis of linear samples and samples of nonlinear deviations.**\\
 
 ![image](/effect_sims/f1_2_3_4.png)
 
