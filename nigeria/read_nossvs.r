@@ -1,0 +1,36 @@
+
+wasting.rho.lin.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_rho_REGRESSION_wasting2_LinearEffects.res", header = TRUE)
+wasting.rho.cage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_rho_REGRESSION_wasting2_nonlinear_pspline_effect_of_cage2.res", header = TRUE)
+wasting.rho.mage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_rho_REGRESSION_wasting2_nonlinear_pspline_effect_of_mage2.res", header = TRUE)
+wasting.rho.mbmi.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_rho_REGRESSION_wasting2_nonlinear_pspline_effect_of_mbmi2.res", header = TRUE)
+wasting.rho.subregion.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_rho_REGRESSION_wasting2_spatial_MRF_effect_of_subregion.res", header = TRUE)
+wasting.rho.subregion.v.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_rho_REGRESSION_wasting2_variance_of_spatial_MRF_effect_of_subregion.res", header = TRUE)
+
+
+wasting.sigma.lin.full<- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_LinearEffects.res", header = TRUE)
+wasting.sigma.cage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_nonlinear_pspline_effect_of_cage2.res", header = TRUE)
+wasting.sigma.mage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_nonlinear_pspline_effect_of_mage2.res", header = TRUE)
+wasting.sigma.mbmi.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_nonlinear_pspline_effect_of_mbmi2.res", header = TRUE)
+wasting.sigma.subregion.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_spatial_MRF_effect_of_subregion.res", header = TRUE)
+wasting.sigma.subregion.v.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_variance_of_spatial_MRF_effect_of_subregion.res", header = TRUE)
+
+stunting.sigma.lin.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_stunting2_LinearEffects.res", header = TRUE)
+stunting.sigma.cage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_stunting2_nonlinear_pspline_effect_of_cage2.res", header = TRUE)
+stunting.sigma.mage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_stunting2_nonlinear_pspline_effect_of_mage2.res", header = TRUE)
+stunting.sigma.mbmi.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_stunting2_nonlinear_pspline_effect_of_mbmi2.res", header = TRUE)
+stunting.sigma.subregion.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_stunting2_spatial_MRF_effect_of_subregion.res", header = TRUE)
+stunting.sigma.subregion.v.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_sigma_REGRESSION_wasting2_variance_of_spatial_MRF_effect_of_subregion.res", header = TRUE)
+
+stunting.mu.lin.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_stunting2_LinearEffects.res", header = TRUE)
+stunting.mu.cage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_stunting2_nonlinear_pspline_effect_of_cage2.res", header = TRUE)
+stunting.mu.mage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_stunting2_nonlinear_pspline_effect_of_mage2.res", header = TRUE)
+stunting.mu.mbmi.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_stunting2_nonlinear_pspline_effect_of_mbmi2.res", header = TRUE)
+stunting.mu.subregion.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_stunting2_spatial_MRF_effect_of_subregion.res", header = TRUE)
+stunting.mu.subregion.v.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_variance_of_spatial_MRF_effect_of_subregion.res", header = TRUE)
+
+wasting.mu.lin.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_LinearEffects.res", header = TRUE)
+wasting.mu.cage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_nonlinear_pspline_effect_of_cage2.res", header = TRUE)
+wasting.mu.mage.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_nonlinear_pspline_effect_of_mage2.res", header = TRUE)
+wasting.mu.mbmi.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_nonlinear_pspline_effect_of_mbmi2.res", header = TRUE)
+wasting.mu.subregion.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_spatial_MRF_effect_of_subregion.res", header = TRUE)
+wasting.mu.subregion.v.full <- read.table("nigeria/results/bivn_nossvs/bivn_MAIN_mu_REGRESSION_wasting2_variance_of_spatial_MRF_effect_of_subregion.res", header = TRUE)

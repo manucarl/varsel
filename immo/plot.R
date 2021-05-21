@@ -228,7 +228,7 @@ data <- data.frame(intnr = y2.mu.spat.kgs05a$intnr, states = as.character(y2.mu.
 
 # if(store_plots==T) postscript(file = paste0("./immo/immo_maps.eps"), horizontal = FALSE)
 # if(store_plots==T) pdf(file = paste0("./immo/immo_maps.pdf"))
-if(store_plots==T) png(file = paste0("./immo/immo_maps.png"),width=480*1.5, height=480*1.5)
+if(store_plots==T) png(file = paste0("./immo/immo_maps.png"),width=480*1.5, height=480*1.8)
 
 layout(matrix(c(1,2,3,4,5,5),nrow = 3, byrow = TRUE), widths = c(1,1,0.5), heights = c(0.5,0.5,0.1))
 data <- data.frame(intnr = y2.mu.spat.kgs05a$intnr, states = as.character(y2.mu.spat.kgs05a$kgs05a), x = y2.mu.spat.kgs05a$pmean + y1.mu.random$pmean)

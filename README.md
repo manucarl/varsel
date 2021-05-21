@@ -2,7 +2,15 @@
  
 ##  [House Prices](immo)
 **Effect Selection in hierarchical location-scale model with spatial heterogenity**
+Data ist not available publicly, unfortunately.
 
 ![image](/immo/immo_maps.png)
+
+---
+
+##  [Nigeria Undernutrition](nigeria)
+**Effect Selection for predictors of all parameters in bivariate Gaussian location-scale model of undernutrition scores**
+Data ist not available publicly, unfortunately.
+![image](/nigeria/niger_bivn_nonlin.png)
 
 ---
