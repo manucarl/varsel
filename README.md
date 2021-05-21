@@ -8,7 +8,7 @@ All results where obtained via BayesX.
 4. Patent Data
 3. Simulated effect samples 
 
-##  [Housing Prices](immo)
+1. ##  [Housing Prices](immo)
 **Effect Selection in hierarchical location-scale model with spatial heterogenity**
 Data ist not available publicly, unfortunately.
 
@@ -16,7 +16,7 @@ Data ist not available publicly, unfortunately.
 
 ---
 
-. ##  [Nigeria Undernutrition](nigeria)
+2. ##  [Nigeria Undernutrition](nigeria)
 **Effect Selection for predictors of all parameters ($\mu$) in bivariate Gaussian location-scale model of undernutrition scores**
 Data ist not available publicly, unfortunately.
 ![image](/nigeria/niger_bivn_nonlin.png)
