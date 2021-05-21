@@ -1,0 +1,976 @@
+> dataset d
+
+> d.infile using ./data//patent.raw
+
+NOTE: 33 variables with 4805 observations read from file
+./data//patent.raw
+
+> d.drop if nclaims >50
+
+NOTE: 0 observations dropped
+> delimiter=;
+
+> mcmcreg m2
+
+> m2.outfile = ./results/score_batches_zip/predict2/pi
+
+> m2.hregress ncit = const + nclaims+ opp+ biopharm + patgsgr + ncountrys(pspline, a=0.0001, b=0.0001)+ years(pspline, a=0.0001, b=0.0001) weight w2, family=zip iterations=12000 burnin=2000 step=10 equationtype=pi using d
+
+> m2.outfile = ./results/score_batches_zip/predict2/lambda
+
+> m2.hregress ncit = const + opp+ biopharm + patgsgr + ncountrys(pspline, a=0.0001, b=0.0001)+ years(pspline, a=0.0001, b=0.0001)+ nclaimss(pspline, a=0.0001, b=0.0001) weight w2,setseed=2123 family=zip predict = light equationtype=lambda using d
+
+
+MCMCREG OBJECT m2: MAIN lambda REGRESSION_ncit
+
+GENERAL OPTIONS:
+
+  Number of iterations:  12000
+  Burn-in period:        2000
+  Thinning parameter:    10
+  Saveestimation:        disabled
+
+
+
+RESPONSE DISTRIBUTION:
+
+  Family: ZIP
+  Number of observations: 4805
+  Number of observations with positive weights: 4325
+
+  Response function (lambda): exponential
+  Response function (pi): logistic distribution function
+
+
+OPTIONS FOR ESTIMATION:
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.6819324
+  Last knot: 2.279559
+  Knot distance: 0.20849955
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.6819324(0.20849955)2.279559) 
+  where x contains the values for which the basis functions should be created
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.0001
+  Hyperprior b for variance parameter: 0.0001
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.8483428
+  Last knot: 1.5525191
+  Knot distance: 0.23162431
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.8483428(0.23162431)1.5525191) 
+  where x contains the values for which the basis functions should be created
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.0001
+  Hyperprior b for variance parameter: 0.0001
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.4533633
+  Last knot: 4.6938785
+  Knot distance: 0.32353904
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.4533633(0.32353904)4.6938785) 
+  where x contains the values for which the basis functions should be created
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.0001
+  Hyperprior b for variance parameter: 0.0001
+
+
+
+MCMCREG OBJECT m2: MAIN pi REGRESSION_ncit
+
+RESPONSE DISTRIBUTION:
+
+  Family: ZIP_pi
+  Number of observations: 4805
+  Number of observations with positive weights: 4325
+
+  Response function (pi): logistic distribution function
+
+
+OPTIONS FOR ESTIMATION:
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.6819324
+  Last knot: 2.279559
+  Knot distance: 0.20849955
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.6819324(0.20849955)2.279559) 
+  where x contains the values for which the basis functions should be created
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.0001
+  Hyperprior b for variance parameter: 0.0001
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.8483428
+  Last knot: 1.5525191
+  Knot distance: 0.23162431
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.8483428(0.23162431)1.5525191) 
+  where x contains the values for which the basis functions should be created
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.0001
+  Hyperprior b for variance parameter: 0.0001
+
+
+MCMC SIMULATION STARTED
+
+  COMPUTING STARTING VALUES (MAY TAKE SOME TIME)
+  ITERATION: 1
+
+  APPROXIMATE RUN TIME: 1 minute 38 seconds
+
+  ITERATION: 1000
+  ITERATION: 2000
+  ITERATION: 3000
+  ITERATION: 4000
+  ITERATION: 5000
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    92.95 %
+
+  Relative Changes in  
+
+  Mean:               0.00979674
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    79.37 %
+
+  Relative Changes in  
+
+  Mean:               0.092365
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    92.33 %
+
+  Relative Changes in  
+
+  Mean:               0.744439
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    87.59 %
+
+  Relative Changes in  
+
+  Mean:               0.128353
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    98.09 %
+
+  Relative Changes in  
+
+  Mean:               0.101873
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    88.58 %
+
+  Relative Changes in  
+
+  Mean:               0.146247
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    95.05 %
+
+  Relative Changes in  
+
+  Mean:               0.139111
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+  ITERATION: 6000
+  ITERATION: 7000
+  ITERATION: 8000
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    92.93 %
+
+  Relative Changes in  
+
+  Mean:               0.00344859
+  Variance:           0.0245188
+  Minimum:            0.00327124
+  Maximum:            0
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    79.48 %
+
+  Relative Changes in  
+
+  Mean:               0.0330702
+  Variance:           0.0472121
+  Minimum:            0.032894
+  Maximum:            0.0656655
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.108358
+  Variance:           0.232524
+  Minimum:            0.256556
+  Maximum:            0.00140771
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    92.36 %
+
+  Relative Changes in  
+
+  Mean:               0.0248917
+  Variance:           0.0161905
+  Minimum:            0.0420844
+  Maximum:            0.185829
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.115464
+  Variance:           0.168024
+  Minimum:            1.82373e-08
+  Maximum:            0.0218597
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    87.86 %
+
+  Relative Changes in  
+
+  Mean:               0.0154002
+  Variance:           0.0279859
+  Minimum:            0.0549556
+  Maximum:            0.107345
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0285647
+  Variance:           0.148648
+  Minimum:            0.453094
+  Maximum:            0.231067
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    98.08 %
+
+  Relative Changes in  
+
+  Mean:               0.00701085
+  Variance:           0.0546639
+  Minimum:            0.0250124
+  Maximum:            0.0234974
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    88.44 %
+
+  Relative Changes in  
+
+  Mean:               0.0328342
+  Variance:           0.0767671
+  Minimum:            0.13872
+  Maximum:            0.0936685
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.110864
+  Variance:           0.218879
+  Minimum:            0.477561
+  Maximum:            0.0215367
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    95 %
+
+  Relative Changes in  
+
+  Mean:               0.00883314
+  Variance:           0.0947795
+  Minimum:            0.0773927
+  Maximum:            0.0581519
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.108637
+  Variance:           0.293644
+  Minimum:            0.3546
+  Maximum:            8.32657e-05
+
+
+  ITERATION: 9000
+  ITERATION: 10000
+  ITERATION: 11000
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    93.07 %
+
+  Relative Changes in  
+
+  Mean:               0.000707777
+  Variance:           0.00604816
+  Minimum:            0.0171879
+  Maximum:            0.0122334
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    79.27 %
+
+  Relative Changes in  
+
+  Mean:               0.0100055
+  Variance:           0.0445663
+  Minimum:            0.0658954
+  Maximum:            0.0209404
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0336394
+  Variance:           0.0127084
+  Minimum:            0.0722657
+  Maximum:            0.298093
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    92.69 %
+
+  Relative Changes in  
+
+  Mean:               0.0130834
+  Variance:           0.0145992
+  Minimum:            0.0145173
+  Maximum:            0.106195
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0201645
+  Variance:           0.12574
+  Minimum:            0.117683
+  Maximum:            1.11277e-07
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    87.62 %
+
+  Relative Changes in  
+
+  Mean:               0.00464731
+  Variance:           0.0230751
+  Minimum:            0.0755662
+  Maximum:            0.0216867
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0132803
+  Variance:           0.0042057
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    98.17 %
+
+  Relative Changes in  
+
+  Mean:               0.00759209
+  Variance:           0.0346437
+  Minimum:            0.00152644
+  Maximum:            0.105124
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    88.51 %
+
+  Relative Changes in  
+
+  Mean:               0.00614374
+  Variance:           0.0297584
+  Minimum:            0.0587762
+  Maximum:            0.0363067
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0225445
+  Variance:           0.153936
+  Minimum:            0.18691
+  Maximum:            0.0103692
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    94.64 %
+
+  Relative Changes in  
+
+  Mean:               0.00977995
+  Variance:           0.0351714
+  Minimum:            0.0594207
+  Maximum:            0.125618
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.10074
+  Variance:           0.185108
+  Minimum:            0.314387
+  Maximum:            0.000107675
+
+
+  ITERATION: 12000
+
+SIMULATION TERMINATED
+
+SIMULATION RUN TIME: 1 minute 37 seconds
+
+
+ESTIMATION RESULTS:
+
+
+MCMCREG OBJECT m2: MAIN lambda REGRESSION_ncit
+
+
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     1.04291        0.0429225      0.963128       1.04198        1.1299         
+    opp       0.171747       0.0143243      0.143443       0.171799       0.199716       
+    biopharm  0.129693       0.019888       0.0905807      0.130535       0.16539        
+    patgsgr   -0.124613      0.01793        -0.159106      -0.124595      -0.0878933     
+
+    Acceptance rate:    93.08 %
+
+    Results for fixed effects are also stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects.res
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+    Acceptance rate:    79.27 %
+
+    Estimated parameters are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_param.res
+
+    Function estimates are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys.res
+
+    Mean effects evaluated at ncountrys=0.0560748548266889 with value 0.0760912574459489
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.90752
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.50015
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0940148
+    Std. dev.:      0.0758961
+    2.5% Quantile:  0.0170151
+    10% Quantile:   0.0296906
+    50% Quantile:   0.0730251
+    90% Quantile:   0.18294
+    97.5% Quantile: 0.304445
+
+    Results for the variance component are also stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys.res
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+    Acceptance rate:    92.69 %
+
+    Estimated parameters are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_param.res
+
+    Function estimates are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years.res
+
+    Mean effects evaluated at years=-0.0134161827578266 with value 0.0224303790640968
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.87693
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.51377
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00335933
+    Std. dev.:      0.00600858
+    2.5% Quantile:  7.19998e-05
+    10% Quantile:   0.000142779
+    50% Quantile:   0.00105593
+    90% Quantile:   0.00899428
+    97.5% Quantile: 0.0215244
+
+    Results for the variance component are also stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years.res
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+    Acceptance rate:    87.62 %
+
+    Estimated parameters are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_param.res
+
+    Function estimates are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss.res
+
+    Mean effects evaluated at nclaimss=-0.0401618394422281 with value -0.246350697977161
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.91136
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.57588
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0095427
+    Std. dev.:      0.0117609
+    2.5% Quantile:  0.0015905
+    10% Quantile:   0.00271498
+    50% Quantile:   0.00657802
+    90% Quantile:   0.0175174
+    97.5% Quantile: 0.0360555
+
+    Results for the variance component are also stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss.res
+
+
+  PREDICTED VALUES: 
+
+    Results for the predictor, mean are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_predict.res
+
+
+  ESTIMATION RESULT FOR THE DEVIANCE: 
+
+    Mean:           14826.367
+    Std. Dev:       13.984326
+    2p5% Quantile:  14800.186
+    10% Quantile:   14808.812
+    50% Quantile:   14825.441
+    90% Quantile:   14844.011
+    97p5% Quantile: 14852.456
+
+
+    Results for the DIC are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_predict_DIC.res
+
+  ESTIMATION RESULTS FOR THE DIC: 
+
+    Deviance(bar_mu):           14778.106
+    pD:                         48.261055
+    DIC:                        14874.628
+
+
+    Results for the WAIC are stored in file
+    ./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_predict_WAIC.res
+
+  ESTIMATION RESULTS FOR THE WAIC: 
+
+    l_pd:                       14716.452
+    p_d:                        113.68425
+    WAIC:                       14943.821
+
+
+
+MCMCREG OBJECT m2: MAIN pi REGRESSION_ncit
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     -0.634221      0.119355       -0.87307       -0.631683      -0.400476      
+    nclaims   0.00360763     0.00478075     -0.00563561    0.00382405     0.0122626      
+    opp       -0.122054      0.0434581      -0.204858      -0.123364      -0.0351964     
+    biopharm  0.142551       0.0553893      0.0258201      0.142729       0.245121       
+    patgsgr   0.034352       0.0513517      -0.0667265     0.0361036      0.131101       
+
+    Acceptance rate:    98.17 %
+
+    Results for fixed effects are also stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_LinearEffects.res
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+    Acceptance rate:    88.51 %
+
+    Estimated parameters are stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_param.res
+
+    Function estimates are stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys.res
+
+    Mean effects evaluated at ncountrys=0.0560748548266889 with value 0.177949624940781
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.8659
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.54505
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+    Acceptance rate:    100 %
+
+    Mean:           0.393892
+    Std. dev.:      0.423511
+    2.5% Quantile:  0.0298365
+    10% Quantile:   0.0727337
+    50% Quantile:   0.281496
+    90% Quantile:   0.83645
+    97.5% Quantile: 1.48101
+
+    Results for the variance component are also stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys.res
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+    Acceptance rate:    94.64 %
+
+    Estimated parameters are stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_param.res
+
+    Function estimates are stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years.res
+
+    Mean effects evaluated at years=-0.0134161827578266 with value -0.160797810793647
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.83616
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.50069
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0310019
+    Std. dev.:      0.0468409
+    2.5% Quantile:  0.00181304
+    10% Quantile:   0.00443053
+    50% Quantile:   0.0181997
+    90% Quantile:   0.0640425
+    97.5% Quantile: 0.136636
+
+    Results for the variance component are also stored in file
+    ./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years.res
+
+
+  FILES FOR VISUALIZING RESULTS:
+
+    STATA DO-FILE
+
+    ./results/score_batches_zip/predict2/lambda_stata.do
+
+    R-FILE
+
+    ./results/score_batches_zip/predict2/lambda_R.r
+
+> m2.getsample
+
+Storing sampled parameters...
+Sampled parameters are stored in file(s):
+
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_sample.raw
+
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.raw
+
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.raw
+
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.raw
+
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_sample.raw
+
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_sample.raw
+
+File for convenient visualization of 
+sampling paths using the Windows version of BayesX is stored in
+
+./results/score_batches_zip/predict2/lambda_samples.prg
+
+
+> m2.autocor
+
+Computing autocorrelation functions...
+Autocorrelations are stored in file(s):
+
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_autocor.raw
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_autocor.raw
+./results/score_batches_zip/predict2/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_autocor.raw
+./results/score_batches_zip/predict2/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_autocor.raw
+File for convenient computation and visualization of 
+autocorrelations using the Windows version of BayesX is stored in
+
+./results/score_batches_zip/predict2/lambda_autocor.prg
+
+> drop m2
+
+> drop d
+
+> logclose
+

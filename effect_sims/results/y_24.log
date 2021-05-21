@@ -1,0 +1,4613 @@
+> dataset d
+
+> d.infile using /home/mcarlan/VarSel/data/normal/n200_unsparse_notspatial_cor0/data.raw
+
+NOTE: 181 variables with 200 observations read from file
+/home/mcarlan/VarSel/data/normal/n200_unsparse_notspatial_cor0/data.raw
+
+> d.infile using /home/mcarlan/VarSel/data/normal/n200_unsparse_notspatial_cor0/data.raw
+
+NOTE: 181 variables with 200 observations read from file
+/home/mcarlan/VarSel/data/normal/n200_unsparse_notspatial_cor0/data.raw
+
+> d.generate c=1
+
+> map ma
+
+> ma.infile using /home/mcarlan/VarSel/spatial/westerngermany.bnd
+
+NOTE: 327 regions read from file /home/mcarlan/VarSel/spatial/westerngermany.bnd
+> delimiter=;
+
+> mcmcreg m
+
+> m.outfile = /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24
+
+> m.hregress y24 = const + x1(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x2(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x3(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x4(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x5(ssvs, gig, v1 = 5, v2 = 57.8419653499511, r = 0.0000928092908327479)+ x6(ssvs, gig, v1 = 5, v2 = 57.2620996838334, r = 0.0000928092908327479)+ x7(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x8(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x9(ssvs, gig, v1 = 5, v2 = 57.2620996838334, r = 0.0000928092908327479)+ x10(ssvs, gig, v1 = 5, v2 = 57.8419653499511, r = 0.0000928092908327479)+ x11(ssvs, gig, v1 = 5, v2 = 57.2620996838334, r = 0.0000928092908327479)+ x12(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x13(ssvs, gig, v1 = 5, v2 = 59.0284363176667, r = 0.0000928092908327479)+ x14(ssvs, gig, v1 = 5, v2 = 56.6909102394871, r = 0.0000928092908327479)+ x15(ssvs, gig, v1 = 5, v2 = 57.2620996838334, r = 0.0000928092908327479)+ x16(ssvs, gig, v1 = 5, v2 = 59.6354085359496, r = 0.000092809290832748)+ x1(pspline, prior = ssvs, v1 = 5, v2 = 0.508433051899809,r = 0.000343463792330855,ssvsupdate=gibbs, centermethod=nullspace)+ x2(pspline, prior = ssvs, v1 = 5, v2 = 0.508426554184225,r = 0.000343419779819429,ssvsupdate=gibbs, centermethod=nullspace)+ x3(pspline, prior = ssvs, v1 = 5, v2 = 0.508509947619782,r = 0.000344469725037128,ssvsupdate=gibbs, centermethod=nullspace)+ x4(pspline, prior = ssvs, v1 = 5, v2 = 0.508312379837776,r = 0.000343449381471723,ssvsupdate=gibbs, centermethod=nullspace)+ x5(pspline, prior = ssvs, v1 = 5, v2 = 0.508341486481883,r = 0.000343520146484748,ssvsupdate=gibbs, centermethod=nullspace)+ x6(pspline, prior = ssvs, v1 = 5, v2 = 0.508294453829437,r = 0.000343477217781771,ssvsupdate=gibbs, centermethod=nullspace)+ x7(pspline, prior = ssvs, v1 = 5, v2 = 0.508776871156939,r = 0.000343376476776702,ssvsupdate=gibbs, centermethod=nullspace)+ x8(pspline, prior = ssvs, v1 = 5, v2 = 0.508632044738575,r = 0.000343234151533191,ssvsupdate=gibbs, centermethod=nullspace)+ x9(pspline, prior = ssvs, v1 = 5, v2 = 0.508321555721792,r = 0.000343490761253167,ssvsupdate=gibbs, centermethod=nullspace)+ x10(pspline, prior = ssvs, v1 = 5, v2 = 0.50921425636288,r = 0.000343050059053513,ssvsupdate=gibbs, centermethod=nullspace)+ x11(pspline, prior = ssvs, v1 = 5, v2 = 0.50862594664928,r = 0.000343237511541404,ssvsupdate=gibbs, centermethod=nullspace)+ x12(pspline, prior = ssvs, v1 = 5, v2 = 0.508312379837776,r = 0.000343449381471723,ssvsupdate=gibbs, centermethod=nullspace)+ x13(pspline, prior = ssvs, v1 = 5, v2 = 0.508472225359606,r = 0.000344336984325862,ssvsupdate=gibbs, centermethod=nullspace)+ x14(pspline, prior = ssvs, v1 = 5, v2 = 0.50830070392036,r = 0.000343472991693471,ssvsupdate=gibbs, centermethod=nullspace)+ x15(pspline, prior = ssvs, v1 = 5, v2 = 0.508368602556744,r = 0.000343501811722002,ssvsupdate=gibbs, centermethod=nullspace)+ x16(pspline, prior = ssvs, v1 = 5, v2 = 0.508325450629296,r = 0.000343497469093936,ssvsupdate=gibbs, centermethod=nullspace)+ region(spatial, map=ma,  prior = ssvs, v1 =5, v2 = 1.81236027801733,r = 0.000754066084374679,ssvsupdate=gibbs) weight w, iterations=12000 burnin=2000 step=10 setseed =743  predict = light family=normal equationtype=mu using d
+
+NOTE: no observations for region 1001
+NOTE: no observations for region 1051
+NOTE: no observations for region 1058
+NOTE: no observations for region 1004
+NOTE: no observations for region 1055
+NOTE: no observations for region 3405
+NOTE: no observations for region 1056
+NOTE: no observations for region 1062
+NOTE: no observations for region 1003
+NOTE: no observations for region 3402
+NOTE: no observations for region 3352
+NOTE: no observations for region 3359
+NOTE: no observations for region 2000
+NOTE: no observations for region 3354
+NOTE: no observations for region 3403
+NOTE: no observations for region 3451
+NOTE: no observations for region 3355
+NOTE: no observations for region 3360
+NOTE: no observations for region 3401
+NOTE: no observations for region 5166
+NOTE: no observations for region 5112
+NOTE: no observations for region 5111
+NOTE: no observations for region 5513
+NOTE: no observations for region 5512
+NOTE: no observations for region 5119
+NOTE: no observations for region 5117
+NOTE: no observations for region 3460
+NOTE: no observations for region 3454
+NOTE: no observations for region 3351
+NOTE: no observations for region 3201
+NOTE: no observations for region 3151
+NOTE: no observations for region 3154
+NOTE: no observations for region 3101
+NOTE: no observations for region 5354
+NOTE: no observations for region 5358
+NOTE: no observations for region 5316
+NOTE: no observations for region 5562
+NOTE: no observations for region 5911
+NOTE: no observations for region 5158
+NOTE: no observations for region 5113
+NOTE: no observations for region 7211
+NOTE: no observations for region 3253
+NOTE: no observations for region 5758
+NOTE: no observations for region 5711
+NOTE: no observations for region 3257
+NOTE: no observations for region 3252
+NOTE: no observations for region 5378
+NOTE: no observations for region 5915
+NOTE: no observations for region 5570
+NOTE: no observations for region 5954
+NOTE: no observations for region 5754
+NOTE: no observations for region 7232
+NOTE: no observations for region 10042
+NOTE: no observations for region 3254
+NOTE: no observations for region 3153
+NOTE: no observations for region 3156
+NOTE: no observations for region 7233
+NOTE: no observations for region 7131
+NOTE: no observations for region 5382
+NOTE: no observations for region 5962
+NOTE: no observations for region 5774
+NOTE: no observations for region 7231
+NOTE: no observations for region 7134
+NOTE: no observations for region 10043
+NOTE: no observations for region 10041
+NOTE: no observations for region 3155
+NOTE: no observations for region 3152
+NOTE: no observations for region 5762
+NOTE: no observations for region 7138
+NOTE: no observations for region 7111
+NOTE: no observations for region 5966
+NOTE: no observations for region 7141
+NOTE: no observations for region 7140
+NOTE: no observations for region 7336
+NOTE: no observations for region 7133
+NOTE: no observations for region 10045
+NOTE: no observations for region 7320
+NOTE: no observations for region 7312
+NOTE: no observations for region 6636
+NOTE: no observations for region 6439
+NOTE: no observations for region 7316
+NOTE: no observations for region 7313
+NOTE: no observations for region 8336
+NOTE: no observations for region 6634
+NOTE: no observations for region 6531
+NOTE: no observations for region 6436
+NOTE: no observations for region 6434
+NOTE: no observations for region 6411
+NOTE: no observations for region 6433
+NOTE: no observations for region 7332
+NOTE: no observations for region 7319
+NOTE: no observations for region 8315
+NOTE: no observations for region 6631
+NOTE: no observations for region 6440
+NOTE: no observations for region 6413
+NOTE: no observations for region 6438
+NOTE: no observations for region 8212
+NOTE: no observations for region 7338
+NOTE: no observations for region 7334
+NOTE: no observations for region 8231
+NOTE: no observations for region 9662
+NOTE: no observations for region 9463
+NOTE: no observations for region 8325
+NOTE: no observations for region 8237
+NOTE: no observations for region 8235
+NOTE: no observations for region 9663
+NOTE: no observations for region 9672
+NOTE: no observations for region 9671
+NOTE: no observations for region 9661
+NOTE: no observations for region 6437
+NOTE: no observations for region 8226
+NOTE: no observations for region 8121
+NOTE: no observations for region 8236
+NOTE: no observations for region 9476
+NOTE: no observations for region 9464
+NOTE: no observations for region 9674
+NOTE: no observations for region 9478
+NOTE: no observations for region 9473
+NOTE: no observations for region 9461
+NOTE: no observations for region 8327
+NOTE: no observations for region 8417
+NOTE: no observations for region 8416
+NOTE: no observations for region 9675
+NOTE: no observations for region 9677
+NOTE: no observations for region 9676
+NOTE: no observations for region 8125
+NOTE: no observations for region 8111
+NOTE: no observations for region 8116
+NOTE: no observations for region 9475
+NOTE: no observations for region 9471
+NOTE: no observations for region 9563
+NOTE: no observations for region 8437
+NOTE: no observations for region 8415
+NOTE: no observations for region 9575
+NOTE: no observations for region 8128
+NOTE: no observations for region 8119
+NOTE: no observations for region 8425
+NOTE: no observations for region 9377
+NOTE: no observations for region 9572
+NOTE: no observations for region 9474
+NOTE: no observations for region 9472
+NOTE: no observations for region 9573
+NOTE: no observations for region 9565
+NOTE: no observations for region 9564
+NOTE: no observations for region 9776
+NOTE: no observations for region 9763
+NOTE: no observations for region 9764
+NOTE: no observations for region 8436
+NOTE: no observations for region 8426
+NOTE: no observations for region 9571
+NOTE: no observations for region 8136
+NOTE: no observations for region 8135
+NOTE: no observations for region 9773
+NOTE: no observations for region 9577
+NOTE: no observations for region 9780
+NOTE: no observations for region 9778
+NOTE: no observations for region 9762
+NOTE: no observations for region 9772
+NOTE: no observations for region 9761
+NOTE: no observations for region 9272
+NOTE: no observations for region 9372
+NOTE: no observations for region 9276
+NOTE: no observations for region 9263
+NOTE: no observations for region 9777
+NOTE: no observations for region 9186
+NOTE: no observations for region 9275
+NOTE: no observations for region 9279
+NOTE: no observations for region 9273
+NOTE: no observations for region 9190
+NOTE: no observations for region 9180
+NOTE: no observations for region 9172
+NOTE: no observations for region 9179
+NOTE: no observations for region 9178
+NOTE: no observations for region 9174
+NOTE: no observations for region 9274
+NOTE: no observations for region 9171
+NOTE: no observations for region 9177
+NOTE: no observations for region 9183
+NOTE: no observations for region 9182
+
+MCMCREG OBJECT m: MAIN mu REGRESSION_y24
+
+GENERAL OPTIONS:
+
+  Number of iterations:  12000
+  Burn-in period:        2000
+  Thinning parameter:    10
+  Saveestimation:        disabled
+
+
+
+RESPONSE DISTRIBUTION:
+
+  Family: Normal distribution with homoscedastic variance
+  Number of observations: 200
+  Number of observations with positive weights: 200
+
+  Response function: identity
+  Hyperparameter a: 0.001
+  Hyperparameter b: 0.00563033
+
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    x1          5        56.7     9.28e-05
+    x2          5        56.7     9.28e-05
+    x3          5        56.7     9.28e-05
+    x4          5        56.7     9.28e-05
+    x5          5        57.8     9.28e-05
+    x6          5        57.3     9.28e-05
+    x7          5        56.7     9.28e-05
+    x8          5        56.7     9.28e-05
+    x9          5        57.3     9.28e-05
+    x10         5        57.8     9.28e-05
+    x11         5        57.3     9.28e-05
+    x12         5        56.7     9.28e-05
+    x13         5        59       9.28e-05
+    x14         5        56.7     9.28e-05
+    x15         5        57.3     9.28e-05
+    x16         5        59.6     9.28e-05
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0398
+  Last knot: 2.0198
+  Knot distance: 0.21366316
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0398(0.21366316)2.0198) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508433051899809
+  Parameter r for spike: 0.000343463792330855
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0097
+  Last knot: 2.0397
+  Knot distance: 0.21312632
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0097(0.21312632)2.0397) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508426554184225
+  Parameter r for spike: 0.000343419779819429
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0399
+  Last knot: 2.0299
+  Knot distance: 0.2142
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0399(0.2142)2.0299) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508509947619782
+  Parameter r for spike: 0.000344469725037128
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0398
+  Last knot: 2.0198
+  Knot distance: 0.21366316
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0398(0.21366316)2.0198) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508312379837776
+  Parameter r for spike: 0.000343449381471723
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0195
+  Last knot: 2.0095
+  Knot distance: 0.21205263
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0195(0.21205263)2.0095) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508341486481883
+  Parameter r for spike: 0.000343520146484748
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0296
+  Last knot: 2.0096
+  Knot distance: 0.21258947
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0296(0.21258947)2.0096) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508294453829437
+  Parameter r for spike: 0.000343477217781771
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.04
+  Last knot: 2.04
+  Knot distance: 0.21473684
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.04(0.21473684)2.04) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508776871156939
+  Parameter r for spike: 0.000343376476776702
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.9895
+  Last knot: 2.0395
+  Knot distance: 0.21205263
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.9895(0.21205263)2.0395) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508632044738575
+  Parameter r for spike: 0.000343234151533191
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0197
+  Last knot: 2.0297
+  Knot distance: 0.21312632
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0197(0.21312632)2.0297) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508321555721792
+  Parameter r for spike: 0.000343490761253167
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0196
+  Last knot: 2.0196
+  Knot distance: 0.21258947
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0196(0.21258947)2.0196) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.50921425636288
+  Parameter r for spike: 0.000343050059053513
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0298
+  Last knot: 2.0298
+  Knot distance: 0.21366316
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0298(0.21366316)2.0298) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.50862594664928
+  Parameter r for spike: 0.000343237511541404
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0198
+  Last knot: 2.0398
+  Knot distance: 0.21366316
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0198(0.21366316)2.0398) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508312379837776
+  Parameter r for spike: 0.000343449381471723
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.9991
+  Last knot: 1.9891
+  Knot distance: 0.20990526
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.9991(0.20990526)1.9891) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508472225359606
+  Parameter r for spike: 0.000344336984325862
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.9996
+  Last knot: 2.0396
+  Knot distance: 0.21258947
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.9996(0.21258947)2.0396) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.50830070392036
+  Parameter r for spike: 0.000343472991693471
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.0295
+  Last knot: 1.9995
+  Knot distance: 0.21205263
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.0295(0.21205263)1.9995) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508368602556744
+  Parameter r for spike: 0.000343501811722002
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.989
+  Last knot: 1.989
+  Knot distance: 0.20936842
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.989(0.20936842)1.989) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.508325450629296
+  Parameter r for spike: 0.000343497469093936
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 1.81236027801733
+  Parameter r for spike: 0.000754066084374679
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+
+MCMC SIMULATION STARTED
+
+  COMPUTING STARTING VALUES (MAY TAKE SOME TIME)
+  ITERATION: 1
+
+  APPROXIMATE RUN TIME: 10 seconds
+
+  ITERATION: 1000
+  ITERATION: 2000
+  ITERATION: 3000
+  ITERATION: 4000
+  ITERATION: 5000
+
+  MAIN_mu_REGRESSION_y24: linear effects
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.382152
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               8.67563e+11
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.00395
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.373484
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.580857
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.619466
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.00016
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.603182
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.615932
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.650939
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.999254
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.387702
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.709583
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.640943
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.967564
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.766496
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.96059
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.850871
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.601781
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of spatial effect of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+  ITERATION: 6000
+  ITERATION: 7000
+  ITERATION: 8000
+
+  MAIN_mu_REGRESSION_y24: linear effects
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00671931
+  Variance:           0.024
+  Minimum:            0.517845
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00919367
+  Variance:           0.0879554
+  Minimum:            0.0547442
+  Maximum:            0.0575329
+
+
+
+  MAIN_mu_REGRESSION_y24: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0998957
+  Variance:           0.395795
+  Minimum:            0.132243
+  Maximum:            0.518659
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.299467
+  Variance:           0.292112
+  Minimum:            0.0725971
+  Maximum:            0.0372452
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               2.38594
+  Variance:           46.3415
+  Minimum:            7.44485e-08
+  Maximum:            13.2363
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0233202
+  Variance:           0.0277066
+  Minimum:            0.0780484
+  Maximum:            0.0838967
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0440058
+  Variance:           0.116338
+  Minimum:            0.00157351
+  Maximum:            0.329221
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0348422
+  Variance:           0.0365874
+  Minimum:            0.17914
+  Maximum:            0.165506
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0711142
+  Variance:           0.0550576
+  Minimum:            0.25143
+  Maximum:            0.326408
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0360491
+  Variance:           0.0265984
+  Minimum:            0.159316
+  Maximum:            0.168875
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0187012
+  Variance:           0.048988
+  Minimum:            0.353269
+  Maximum:            0.0194785
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.20926
+  Variance:           0.172351
+  Minimum:            0.206591
+  Maximum:            0.0720402
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.499113
+  Variance:           0.494717
+  Minimum:            0.783623
+  Maximum:            4.94746e-13
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0122986
+  Variance:           0.0120218
+  Minimum:            0.0408513
+  Maximum:            0.142367
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0117527
+  Variance:           0.0446385
+  Minimum:            0.0899457
+  Maximum:            0.000895365
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0277921
+  Variance:           0.0206566
+  Minimum:            0.107648
+  Maximum:            0.11036
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0131165
+  Variance:           0.13706
+  Minimum:            0.303999
+  Maximum:            0.308044
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0274583
+  Variance:           0.0224839
+  Minimum:            0.123036
+  Maximum:            0.0804727
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00371724
+  Variance:           0.0579555
+  Minimum:            0.221064
+  Maximum:            0.0286711
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.318451
+  Variance:           0.090377
+  Minimum:            0.369716
+  Maximum:            0.62851
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.459294
+  Variance:           5.80948
+  Minimum:            0.748056
+  Maximum:            2.43682
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0105711
+  Variance:           0.0104803
+  Minimum:            0.0382305
+  Maximum:            0.0352916
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.016393
+  Variance:           0.111204
+  Minimum:            0.000862353
+  Maximum:            0.029119
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0132419
+  Variance:           0.0146646
+  Minimum:            0.055725
+  Maximum:            0.0721782
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0215914
+  Variance:           0.157818
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0209067
+  Variance:           0.0190207
+  Minimum:            0.0386062
+  Maximum:            0.0487989
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00849539
+  Variance:           0.0196132
+  Minimum:            0.139221
+  Maximum:            0.152527
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.306482
+  Variance:           0.377118
+  Minimum:            0.261989
+  Maximum:            0.151267
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.196384
+  Variance:           0.656489
+  Minimum:            0.717239
+  Maximum:            0.454168
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0399087
+  Variance:           0.107482
+  Minimum:            0.0740441
+  Maximum:            0.0749864
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.470479
+  Variance:           0.493921
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.206718
+  Variance:           0.120986
+  Minimum:            0.513477
+  Maximum:            0.246255
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.699
+  Variance:           10.6835
+  Minimum:            0.830967
+  Maximum:            5.32339
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.1355
+  Variance:           0.0580168
+  Minimum:            0.218702
+  Maximum:            0.0479775
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               3.95042
+  Variance:           254.836
+  Minimum:            0.180793
+  Maximum:            35.8155
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.741388
+  Variance:           0.482898
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of spatial effect of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               122.776
+  Variance:           25143
+  Minimum:            0.000370093
+  Maximum:            145.165
+
+
+  ITERATION: 9000
+  ITERATION: 10000
+  ITERATION: 11000
+
+  MAIN_mu_REGRESSION_y24: linear effects
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00198001
+  Variance:           0.00266849
+  Minimum:            0.426239
+  Maximum:            0.0161948
+
+
+
+  MAIN_mu_REGRESSION_y24: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00368289
+  Variance:           0.0178019
+  Minimum:            0.0485879
+  Maximum:            0.0267442
+
+
+
+  MAIN_mu_REGRESSION_y24: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0386386
+  Variance:           0.169497
+  Minimum:            0.0764704
+  Maximum:            0.227144
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.143794
+  Variance:           0.0961231
+  Minimum:            0.0681588
+  Maximum:            0.0326223
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x1
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.220405
+  Variance:           0.302312
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0103032
+  Variance:           0.00761189
+  Minimum:            0.0648623
+  Maximum:            0.0568519
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x2
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0435561
+  Variance:           0.125234
+  Minimum:            0.0669417
+  Maximum:            0.000342903
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0153688
+  Variance:           0.0158034
+  Minimum:            0.0713575
+  Maximum:            0.063939
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x3
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00648127
+  Variance:           0.15554
+  Minimum:            0.0115207
+  Maximum:            0.319573
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0162091
+  Variance:           0.0105505
+  Minimum:            0.0585746
+  Maximum:            0.0736301
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.018733
+  Variance:           0.142228
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.480078
+  Variance:           0.0513697
+  Minimum:            0.189974
+  Maximum:            0.133736
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.331123
+  Variance:           0.331018
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00373807
+  Variance:           0.00505831
+  Minimum:            0.0212377
+  Maximum:            0.0746261
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x6
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0236352
+  Variance:           0.0547287
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0177125
+  Variance:           0.00754535
+  Minimum:            0.15922
+  Maximum:            0.0525142
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x7
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00870478
+  Variance:           0.0508302
+  Minimum:            0.126484
+  Maximum:            0.10274
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0174185
+  Variance:           0.0106011
+  Minimum:            0.0545185
+  Maximum:            0.0573607
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x8
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0293093
+  Variance:           0.144267
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.234784
+  Variance:           0.181789
+  Minimum:            0.108337
+  Maximum:            0.126708
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x9
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.29311
+  Variance:           0.330729
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00399295
+  Variance:           0.00313114
+  Minimum:            0.0387864
+  Maximum:            0.0530626
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x10
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0194181
+  Variance:           0.0727669
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0102809
+  Variance:           0.00593555
+  Minimum:            0.0390822
+  Maximum:            0.0639931
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x11
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0195934
+  Variance:           0.0236871
+  Minimum:            0.196624
+  Maximum:            0.226732
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00700593
+  Variance:           0.00957941
+  Minimum:            0.0899719
+  Maximum:            0.0525421
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x12
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0106475
+  Variance:           0.0998776
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.134436
+  Variance:           0.042531
+  Minimum:            0.0663249
+  Maximum:            0.117152
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x13
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               18.6465
+  Variance:           2254.08
+  Minimum:            1.44019e-07
+  Maximum:            63.8958
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0738134
+  Variance:           0.0515596
+  Minimum:            0.0294304
+  Maximum:            0.136101
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x14
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.318425
+  Variance:           0.330766
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.120331
+  Variance:           0.0969412
+  Minimum:            0.407611
+  Maximum:            0.423736
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x15
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.13413
+  Variance:           0.310746
+  Minimum:            0.787566
+  Maximum:            8.57556e-09
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0523532
+  Variance:           0.0585974
+  Minimum:            0.115048
+  Maximum:            0.205247
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x16
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.280313
+  Variance:           0.330844
+  Minimum:            0.173719
+  Maximum:            3.00761e-10
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.557483
+  Variance:           0.330903
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of spatial effect of region
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               151.017
+  Variance:           27043.2
+  Minimum:            2.53933e-06
+  Maximum:            250.858
+
+
+  ITERATION: 12000
+
+SIMULATION TERMINATED
+
+SIMULATION RUN TIME: 10 seconds
+
+
+ESTIMATION RESULTS:
+
+
+  SCALE PARAMETER:
+
+    Mean:           1.39379
+    Std. dev.:      0.192768
+    2.5% Quantile:  1.0489
+    10% Quantile:   1.16139
+    50% Quantile:   1.38291
+    90% Quantile:   1.65539
+    97.5% Quantile: 1.81233
+
+    Results for variance parameter are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_scale.res
+
+
+
+  MAIN_mu_REGRESSION_y24: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     1.14014        0.2992         0.52164        1.1443         1.72938        
+
+    Acceptance rate:    100 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects.res
+
+
+  MAIN_mu_REGRESSION_y24: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x1        0.999291       0.0961263      0.806802       1.00352        1.18643        
+    x2        -0.353286      0.134171       -0.580888      -0.369011      -0.0434388     
+    x3        -0.404711      0.190821       -0.747244      -0.425004      -0.00493483    
+    x4        0.518983       0.141656       0.218994       0.531224       0.769411       
+    x5        1.37514        0.0923702      1.18928        1.37291        1.57042        
+    x6        -0.872685      0.136551       -1.14877       -0.875772      -0.617018      
+    x7        -0.665472      0.18631        -1.02727       -0.670097      -0.270675      
+    x8        0.845145       0.140857       0.564151       0.846919       1.11183        
+    x9        1.80888        0.0899661      1.6358         1.81064        1.98035        
+    x10       -0.753325      0.135449       -1.02349       -0.758792      -0.491084      
+    x11       -0.971551      0.158729       -1.2783        -0.975402      -0.641859      
+    x12       1.02015        0.13706        0.744846       1.01804        1.29182        
+    x13       -0.0294469     0.0691914      -0.193334      -0.0152621     0.0921438      
+    x14       0.00788351     0.0555089      -0.0995638     0.00189229     0.139169       
+    x15       0.0663387      0.0821235      -0.0469071     0.0450117      0.263719       
+    x16       -0.0787942     0.0827959      -0.273545      -0.0630259     0.0351142      
+
+    Acceptance rate:    100 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  MAIN_mu_REGRESSION_y24: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x1        31.9449        84.7313        0.377          8.81038        209.413        
+    x2        18.7382        50.2253        0.00322145     1.69131        163.537        
+    x3        20.9383        62.1343        0.00149169     1.84214        160.237        
+    x4        22.6485        53.7729        0.026304       4.22126        160.518        
+    x5        35.9526        69.3512        0.625685       11.0244        223.704        
+    x6        28.3799        53.6095        0.249466       6.73344        177.508        
+    x7        22.426         51.2316        0.0329534      4.76772        161.127        
+    x8        29.5509        65.1449        0.198964       5.85804        231.223        
+    x9        40.7726        72.0958        0.929052       13.031         236.196        
+    x10       24.7135        51.7018        0.186969       5.22954        164.189        
+    x11       29.3126        67.3135        0.287325       7.70686        220.755        
+    x12       28.3101        55.1809        0.262439       7.54617        199.201        
+    x13       3.61689        24.7718        1.05803e-05    0.00454445     37.0474        
+    x14       3.6915         25.5335        2.311e-06      0.00343504     34.2465        
+    x15       4.85789        33.7246        1.63127e-05    0.00672839     44.3845        
+    x16       5.36444        26.4143        3.46697e-05    0.00836569     65.2656        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x1        1              0              1              1              1              
+    x2        0.841          0.365676       0              1              1              
+    x3        0.834          0.372081       0              1              1              
+    x4        0.957          0.202857       0              1              1              
+    x5        1              0              1              1              1              
+    x6        0.998          0.0446766      1              1              1              
+    x7        0.969          0.173318       0              1              1              
+    x8        0.994          0.0772269      1              1              1              
+    x9        1              0              1              1              1              
+    x10       0.995          0.0705337      1              1              1              
+    x11       1              0              1              1              1              
+    x12       0.999          0.031607       1              1              1              
+    x13       0.256          0.436422       0              0              1              
+    x14       0.212          0.408725       0              0              1              
+    x15       0.29           0.453762       0              0              1              
+    x16       0.34           0.473709       0              0              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x1        0.999379       0.0155556      1              1              1              
+    x2        0.840585       0.335266       0.023165       1              1              
+    x3        0.828134       0.350703       0.0197448      1              1              
+    x4        0.955253       0.185966       0.122074       1              1              
+    x5        0.999978       0.000687276    1              1              1              
+    x6        0.997137       0.0438439      0.999998       1              1              
+    x7        0.970063       0.154889       0.254184       1              1              
+    x8        0.994944       0.0547516      0.999983       1              1              
+    x9        1              0              1              1              1              
+    x10       0.996199       0.046157       0.999862       1              1              
+    x11       0.999888       0.00230814     1              1              1              
+    x12       0.999392       0.0123258      1              1              1              
+    x13       0.251365       0.375482       0.0116958      0.0515574      1              
+    x14       0.214803       0.346249       0.0110375      0.0486706      1              
+    x15       0.290594       0.39477        0.0120116      0.0607651      1              
+    x16       0.330982       0.41878        0.012851       0.0675879      1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.762017
+    Std. dev.:      0.12293
+    2.5% Quantile:  0.496891
+    10% Quantile:   0.595026
+    50% Quantile:   0.775259
+    90% Quantile:   0.914165
+    97.5% Quantile: 0.958899
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_omega.res
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x1
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x1_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x1.res
+
+    Mean effects evaluated at x1=0.01 with value -0.024050293728025
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.93521
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.76354
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x1
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00217263
+    Std. dev.:      0.013658
+    2.5% Quantile:  7.65592e-07
+    10% Quantile:   4.93717e-06
+    50% Quantile:   0.000126178
+    90% Quantile:   0.00109268
+    97.5% Quantile: 0.0192437
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x1        0.104          0.305261       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x1        0.102074       0.248472       0.000352489    0.0144051      1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.686052
+    Std. dev.:      0.400889
+    2.5% Quantile:  0.263122
+    10% Quantile:   0.353921
+    50% Quantile:   0.576015
+    90% Quantile:   1.12991
+    97.5% Quantile: 1.65249
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.375192
+    Std. dev.:      0.264915
+    2.5% Quantile:  0.0116479
+    10% Quantile:   0.057357
+    50% Quantile:   0.331931
+    90% Quantile:   0.771839
+    97.5% Quantile: 0.911652
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x2
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x2_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x2.res
+
+    Mean effects evaluated at x2=-0.05 with value -1.29179824851288
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.9204
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.59175
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x2
+
+    Acceptance rate:    100 %
+
+    Mean:           0.094472
+    Std. dev.:      0.128609
+    2.5% Quantile:  0.0105464
+    10% Quantile:   0.0176238
+    50% Quantile:   0.0541639
+    90% Quantile:   0.206488
+    97.5% Quantile: 0.444708
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x2        0.999          0.031607       1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x2        0.999174       0.0257663      1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.6464
+    Std. dev.:      0.327702
+    2.5% Quantile:  0.268657
+    10% Quantile:   0.341043
+    50% Quantile:   0.56589
+    90% Quantile:   1.05209
+    97.5% Quantile: 1.49916
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.67295
+    Std. dev.:      0.234684
+    2.5% Quantile:  0.169005
+    10% Quantile:   0.319241
+    50% Quantile:   0.720193
+    90% Quantile:   0.945867
+    97.5% Quantile: 0.988336
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x3
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x3_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x3.res
+
+    Mean effects evaluated at x3=0.02 with value 0.454698813201111
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.9749
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.5526
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x3
+
+    Acceptance rate:    100 %
+
+    Mean:           0.369243
+    Std. dev.:      0.301802
+    2.5% Quantile:  0.057332
+    10% Quantile:   0.110774
+    50% Quantile:   0.294756
+    90% Quantile:   0.725847
+    97.5% Quantile: 1.16032
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x3        1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x3        1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.662263
+    Std. dev.:      0.329673
+    2.5% Quantile:  0.277019
+    10% Quantile:   0.355339
+    50% Quantile:   0.581546
+    90% Quantile:   1.05554
+    97.5% Quantile: 1.50541
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.669665
+    Std. dev.:      0.237713
+    2.5% Quantile:  0.166095
+    10% Quantile:   0.316641
+    50% Quantile:   0.718784
+    90% Quantile:   0.946009
+    97.5% Quantile: 0.989171
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x4
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x4_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x4.res
+
+    Mean effects evaluated at x4=-0.02 with value 0.636219183046693
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.9609
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.57812
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x4
+
+    Acceptance rate:    100 %
+
+    Mean:           0.250273
+    Std. dev.:      0.235011
+    2.5% Quantile:  0.0493289
+    10% Quantile:   0.079144
+    50% Quantile:   0.191369
+    90% Quantile:   0.462111
+    97.5% Quantile: 0.820119
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x4        1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x4        1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.665829
+    Std. dev.:      0.373371
+    2.5% Quantile:  0.280184
+    10% Quantile:   0.351961
+    50% Quantile:   0.568667
+    90% Quantile:   1.06537
+    97.5% Quantile: 1.65532
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.678682
+    Std. dev.:      0.227925
+    2.5% Quantile:  0.189262
+    10% Quantile:   0.346853
+    50% Quantile:   0.71851
+    90% Quantile:   0.950811
+    97.5% Quantile: 0.987423
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x5
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x5_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x5.res
+
+    Mean effects evaluated at x5=-0.04 with value -0.00248804485650979
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.09022
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.59068
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x5
+
+    Acceptance rate:    100 %
+
+    Mean:           0.000242894
+    Std. dev.:      0.000858089
+    2.5% Quantile:  5.13602e-08
+    10% Quantile:   1.7984e-06
+    50% Quantile:   6.35741e-05
+    90% Quantile:   0.000506755
+    97.5% Quantile: 0.00118319
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x5        0.043          0.202857       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x5        0.046484       0.131259       0.000365513    0.0120939      0.38645        
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.695985
+    Std. dev.:      0.424751
+    2.5% Quantile:  0.272525
+    10% Quantile:   0.347789
+    50% Quantile:   0.587536
+    90% Quantile:   1.1196
+    97.5% Quantile: 1.85289
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.354184
+    Std. dev.:      0.246693
+    2.5% Quantile:  0.00902261
+    10% Quantile:   0.0438246
+    50% Quantile:   0.3269
+    90% Quantile:   0.717611
+    97.5% Quantile: 0.868454
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x6
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x6_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x6.res
+
+    Mean effects evaluated at x6=-0.08 with value -1.92117420414823
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.95392
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.57507
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x6
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0954675
+    Std. dev.:      0.101328
+    2.5% Quantile:  0.0163194
+    10% Quantile:   0.0262142
+    50% Quantile:   0.0681708
+    90% Quantile:   0.18982
+    97.5% Quantile: 0.312831
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x6        1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x6        0.999997       0.000100066    1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.624285
+    Std. dev.:      0.322443
+    2.5% Quantile:  0.265426
+    10% Quantile:   0.332496
+    50% Quantile:   0.537019
+    90% Quantile:   0.99827
+    97.5% Quantile: 1.57676
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.681439
+    Std. dev.:      0.221923
+    2.5% Quantile:  0.207369
+    10% Quantile:   0.346946
+    50% Quantile:   0.717924
+    90% Quantile:   0.947727
+    97.5% Quantile: 0.988027
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x7
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x7_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x7.res
+
+    Mean effects evaluated at x7=-0.1 with value -0.176689528754658
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.02322
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.59833
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x7
+
+    Acceptance rate:    100 %
+
+    Mean:           0.880499
+    Std. dev.:      0.523473
+    2.5% Quantile:  0.278263
+    10% Quantile:   0.398199
+    50% Quantile:   0.760753
+    90% Quantile:   1.49758
+    97.5% Quantile: 2.25755
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x7        1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x7        1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.721522
+    Std. dev.:      0.389613
+    2.5% Quantile:  0.284605
+    10% Quantile:   0.364358
+    50% Quantile:   0.632229
+    90% Quantile:   1.16938
+    97.5% Quantile: 1.68429
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.660173
+    Std. dev.:      0.242931
+    2.5% Quantile:  0.136999
+    10% Quantile:   0.311159
+    50% Quantile:   0.696227
+    90% Quantile:   0.955752
+    97.5% Quantile: 0.990411
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x8
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x8_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x8.res
+
+    Mean effects evaluated at x8=0.07 with value 1.49030232091298
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.01336
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.64184
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x8
+
+    Acceptance rate:    100 %
+
+    Mean:           0.448968
+    Std. dev.:      0.350126
+    2.5% Quantile:  0.107742
+    10% Quantile:   0.160331
+    50% Quantile:   0.35803
+    90% Quantile:   0.800004
+    97.5% Quantile: 1.35496
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x8        1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x8        1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.685179
+    Std. dev.:      0.363263
+    2.5% Quantile:  0.276394
+    10% Quantile:   0.364908
+    50% Quantile:   0.595982
+    90% Quantile:   1.16248
+    97.5% Quantile: 1.68295
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.66153
+    Std. dev.:      0.233513
+    2.5% Quantile:  0.160865
+    10% Quantile:   0.310077
+    50% Quantile:   0.697934
+    90% Quantile:   0.94445
+    97.5% Quantile: 0.980667
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x9
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x9_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x9.res
+
+    Mean effects evaluated at x9=0.1 with value -0.0430017121339918
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.89969
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.70638
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x9
+
+    Acceptance rate:    100 %
+
+    Mean:           0.000672855
+    Std. dev.:      0.00356564
+    2.5% Quantile:  3.01924e-07
+    10% Quantile:   4.01403e-06
+    50% Quantile:   0.000122869
+    90% Quantile:   0.000826036
+    97.5% Quantile: 0.00398607
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x9        0.073          0.260137       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x9        0.0773058      0.201164       0.000437483    0.0140767      0.999575       
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.712438
+    Std. dev.:      0.421291
+    2.5% Quantile:  0.281707
+    10% Quantile:   0.351408
+    50% Quantile:   0.60167
+    90% Quantile:   1.1774
+    97.5% Quantile: 1.83943
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.356011
+    Std. dev.:      0.253496
+    2.5% Quantile:  0.0108208
+    10% Quantile:   0.0509332
+    50% Quantile:   0.312198
+    90% Quantile:   0.733301
+    97.5% Quantile: 0.896629
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x10
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x10_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x10.res
+
+    Mean effects evaluated at x10=-0.02 with value -2.39338581434854
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.97589
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.6181
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x10
+
+    Acceptance rate:    100 %
+
+    Mean:           0.214696
+    Std. dev.:      0.183983
+    2.5% Quantile:  0.0370119
+    10% Quantile:   0.0563952
+    50% Quantile:   0.15925
+    90% Quantile:   0.436704
+    97.5% Quantile: 0.685657
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x10       1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x10       1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.636518
+    Std. dev.:      0.314181
+    2.5% Quantile:  0.276442
+    10% Quantile:   0.341593
+    50% Quantile:   0.560046
+    90% Quantile:   1.02509
+    97.5% Quantile: 1.47055
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.662092
+    Std. dev.:      0.244944
+    2.5% Quantile:  0.153577
+    10% Quantile:   0.287282
+    50% Quantile:   0.715862
+    90% Quantile:   0.950417
+    97.5% Quantile: 0.986901
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x11
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x11_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x11.res
+
+    Mean effects evaluated at x11=-0.02 with value 0.510239542517772
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.04042
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.6338
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x11
+
+    Acceptance rate:    100 %
+
+    Mean:           1.17065
+    Std. dev.:      0.696206
+    2.5% Quantile:  0.369679
+    10% Quantile:   0.530989
+    50% Quantile:   0.995723
+    90% Quantile:   2.04783
+    97.5% Quantile: 2.94971
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x11       1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x11       1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.770444
+    Std. dev.:      0.456038
+    2.5% Quantile:  0.318677
+    10% Quantile:   0.396167
+    50% Quantile:   0.666499
+    90% Quantile:   1.25416
+    97.5% Quantile: 1.76543
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.673634
+    Std. dev.:      0.233227
+    2.5% Quantile:  0.166579
+    10% Quantile:   0.324184
+    50% Quantile:   0.708483
+    90% Quantile:   0.949511
+    97.5% Quantile: 0.984459
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x12
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x12_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x12.res
+
+    Mean effects evaluated at x12=-0.02 with value 0.768973341029913
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.02033
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.56956
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x12
+
+    Acceptance rate:    100 %
+
+    Mean:           0.461287
+    Std. dev.:      0.304324
+    2.5% Quantile:  0.123343
+    10% Quantile:   0.176485
+    50% Quantile:   0.381888
+    90% Quantile:   0.847664
+    97.5% Quantile: 1.34301
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x12       1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x12       1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.688887
+    Std. dev.:      0.383312
+    2.5% Quantile:  0.289273
+    10% Quantile:   0.358464
+    50% Quantile:   0.606387
+    90% Quantile:   1.07633
+    97.5% Quantile: 1.62024
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.677145
+    Std. dev.:      0.231215
+    2.5% Quantile:  0.184803
+    10% Quantile:   0.340987
+    50% Quantile:   0.71147
+    90% Quantile:   0.954741
+    97.5% Quantile: 0.988483
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x13
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x13_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x13.res
+
+    Mean effects evaluated at x13=-0.02 with value 0.0141488318259362
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.83324
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.94798
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x13
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00303246
+    Std. dev.:      0.018245
+    2.5% Quantile:  5.86133e-07
+    10% Quantile:   6.24893e-06
+    50% Quantile:   0.000131805
+    90% Quantile:   0.00198892
+    97.5% Quantile: 0.030877
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x13       0.136          0.342789       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x13       0.136152       0.298086       0.000414791    0.0154074      1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.679677
+    Std. dev.:      0.361147
+    2.5% Quantile:  0.282841
+    10% Quantile:   0.355253
+    50% Quantile:   0.591456
+    90% Quantile:   1.08705
+    97.5% Quantile: 1.59438
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.378164
+    Std. dev.:      0.261277
+    2.5% Quantile:  0.0129637
+    10% Quantile:   0.0544427
+    50% Quantile:   0.343817
+    90% Quantile:   0.772273
+    97.5% Quantile: 0.920085
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x14
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x14_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x14.res
+
+    Mean effects evaluated at x14=-0.01 with value 0.117552415988001
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.85144
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.71664
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x14
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00316544
+    Std. dev.:      0.0190087
+    2.5% Quantile:  9.2853e-07
+    10% Quantile:   1.70192e-05
+    50% Quantile:   0.000303762
+    90% Quantile:   0.0039132
+    97.5% Quantile: 0.0234352
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x14       0.176          0.38082        0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x14       0.177914       0.330063       0.000535004    0.0211212      1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.765971
+    Std. dev.:      0.510458
+    2.5% Quantile:  0.282319
+    10% Quantile:   0.378631
+    50% Quantile:   0.635825
+    90% Quantile:   1.27522
+    97.5% Quantile: 1.99526
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.393741
+    Std. dev.:      0.267375
+    2.5% Quantile:  0.0184715
+    10% Quantile:   0.0672912
+    50% Quantile:   0.35202
+    90% Quantile:   0.793594
+    97.5% Quantile: 0.930926
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x15
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x15_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x15.res
+
+    Mean effects evaluated at x15=0.05 with value 0.0148705023864809
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.89021
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.57903
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x15
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00123313
+    Std. dev.:      0.0113125
+    2.5% Quantile:  1.17897e-06
+    10% Quantile:   6.21722e-06
+    50% Quantile:   0.000129158
+    90% Quantile:   0.00105678
+    97.5% Quantile: 0.00409375
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x15       0.097          0.295958       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x15       0.0895099      0.22308        0.00038416     0.0139666      0.999956       
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.725316
+    Std. dev.:      0.461281
+    2.5% Quantile:  0.272952
+    10% Quantile:   0.359977
+    50% Quantile:   0.615819
+    90% Quantile:   1.16517
+    97.5% Quantile: 1.69736
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.377479
+    Std. dev.:      0.264539
+    2.5% Quantile:  0.0171937
+    10% Quantile:   0.0584765
+    50% Quantile:   0.331342
+    90% Quantile:   0.780495
+    97.5% Quantile: 0.919272
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24:  Nonlinear effect (P-spline) of x16
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x16_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x16.res
+
+    Mean effects evaluated at x16=0.01 with value 0.0661293256219325
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.94833
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.86725
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of nonlinear effect of x16
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0024678
+    Std. dev.:      0.00988426
+    2.5% Quantile:  1.05977e-06
+    10% Quantile:   6.4097e-06
+    50% Quantile:   0.000165536
+    90% Quantile:   0.00347503
+    97.5% Quantile: 0.0251556
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x16       0.158          0.364741       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    x16       0.159006       0.323217       0.000466572    0.0163016      1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.726464
+    Std. dev.:      0.426104
+    2.5% Quantile:  0.290605
+    10% Quantile:   0.362703
+    50% Quantile:   0.606367
+    90% Quantile:   1.25793
+    97.5% Quantile: 1.84182
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.396526
+    Std. dev.:      0.260337
+    2.5% Quantile:  0.0166996
+    10% Quantile:   0.0812249
+    50% Quantile:   0.354003
+    90% Quantile:   0.793476
+    97.5% Quantile: 0.945167
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_omega.res
+
+
+
+  MAIN_mu_REGRESSION_y24: Spatial effect (MRF) of region
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_spatial_MRF_effect_of_region_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_spatial_MRF_effect_of_region.res
+
+    Mean effects evaluated at region=3452 with value -0.00233925700599447
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 6.39113
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 4.4573
+
+
+
+  MAIN_mu_REGRESSION_y24: Variance of spatial effect of region
+
+    Acceptance rate:    100 %
+
+    Mean:           0.033825
+    Std. dev.:      0.0934487
+    2.5% Quantile:  4.00196e-08
+    10% Quantile:   1.00632e-07
+    50% Quantile:   9.58926e-05
+    90% Quantile:   0.123732
+    97.5% Quantile: 0.322606
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    region    0.233          0.422742       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    region    0.235589       0.386439       0.000486843    0.0238775      1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           2.44418
+    Std. dev.:      1.38935
+    2.5% Quantile:  0.969571
+    10% Quantile:   1.18295
+    50% Quantile:   2.09741
+    90% Quantile:   4.00614
+    97.5% Quantile: 6.1185
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.41486
+    Std. dev.:      0.270968
+    2.5% Quantile:  0.0166768
+    10% Quantile:   0.0700922
+    50% Quantile:   0.385974
+    90% Quantile:   0.816613
+    97.5% Quantile: 0.956834
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_omega.res
+
+
+  PREDICTED VALUES: 
+
+    Results for the predictor, mean are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_predict.res
+
+
+  ESTIMATION RESULT FOR THE DEVIANCE: 
+
+    Mean:           631.80165
+    Std. Dev:       17.886128
+    2p5% Quantile:  595.42561
+    10% Quantile:   609.03766
+    50% Quantile:   631.74914
+    90% Quantile:   654.06658
+    97p5% Quantile: 665.88342
+
+
+    Results for the DIC are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_predict_DIC.res
+
+  ESTIMATION RESULTS FOR THE DIC: 
+
+    Deviance(bar_mu):           557.01913
+    pD:                         74.782519
+    DIC:                        706.58417
+
+
+    Results for the WAIC are stored in file
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_predict_WAIC.res
+
+  ESTIMATION RESULTS FOR THE WAIC: 
+
+    l_pd:                       586.09207
+    p_d:                        61.171384
+    WAIC:                       708.43484
+
+
+  FILES FOR VISUALIZING RESULTS:
+
+    STATA DO-FILE
+
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_stata.do
+
+    R-FILE
+
+    /home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_R.r
+
+> m.getsample
+
+Storing sampled parameters...
+Sampled parameters are stored in file(s):
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_scale_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x1_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x3_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x4_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x5_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x6_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x7_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x8_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x9_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x10_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x11_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x12_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x13_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x14_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x15_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x16_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_psi2_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_spatial_MRF_effect_of_region_sample.raw
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_delta_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_omega_sample.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_psi2_sample.raw
+
+File for convenient visualization of 
+sampling paths using the Windows version of BayesX is stored in
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_samples.prg
+
+
+> m.autocor
+
+Computing autocorrelation functions...
+Autocorrelations are stored in file(s):
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_LinearEffects_ssvs_var_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x1_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x1_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x2_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x2_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x3_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x3_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x4_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x4_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x5_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x5_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x6_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x6_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x7_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x7_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x8_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x8_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x9_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x9_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x10_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x10_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x11_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x11_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x12_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x12_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x13_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x13_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x14_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x14_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x15_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x15_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_nonlinear_pspline_effect_of_x16_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_nonlinear_pspline_effect_of_x16_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_spatial_MRF_effect_of_region_autocor.raw
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_MAIN_mu_REGRESSION_y24_variance_of_spatial_MRF_effect_of_region_autocor.raw
+File for convenient computation and visualization of 
+autocorrelations using the Windows version of BayesX is stored in
+
+/home/mcarlan/VarSel/results/normal/n200_unsparse_notspatial_cor0_alpha0.05_c0.1/y_24/y_24_autocor.prg
+
+> drop m
+
+> drop d
+
+> logclose
+

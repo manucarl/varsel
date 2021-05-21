@@ -1,0 +1,1824 @@
+> dataset d
+
+> d.infile using ./data//patent.raw
+
+NOTE: 33 variables with 4805 observations read from file
+./data//patent.raw
+
+> delimiter=;
+
+> mcmcreg m1
+
+> m1.outfile = /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi
+
+> m1.hregress ncit = const + years(ssvs, gig, v1 = 5, v2 = 26.2575033798087, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ ncountrys(ssvs, gig, v1 = 5, v2 = 41.1532985596849, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ nclaimss(ssvs, gig, v1 = 5, v2 = 9.62367510691154, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ ustwin(ssvs, gig, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ opp(ssvs, gig, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ biopharm(ssvs, gig, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ patus(ssvs, gig, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ patgsgr(ssvs, gig, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ years(pspline, prior = ssvs, v1 = 5, v2 = 0.511880109122076,r = 0.000342239043010924,ssvsupdate=gibbs, centermethod=nullspace)+ ncountrys(pspline, prior = ssvs, v1 = 5, v2 = 0.51823046838236,r = 0.000340535716254245,ssvsupdate=gibbs, centermethod=nullspace)+ nclaimss(pspline, prior = ssvs, v1 = 5, v2 = 0.509178060973639,r = 0.000343733536850348,ssvsupdate=gibbs, centermethod=nullspace) weight w1, family=zip iterations=12000 burnin=2000 step=10 equationtype=pi using d
+
+> m1.outfile = /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda
+
+> m1.hregress ncit = const + years(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 26.2575033798087, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ ncountrys(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 41.1532985596849, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ nclaimss(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 9.62367510691154, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ ustwin(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ opp(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ biopharm(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ patus(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ patgsgr(ssvs, gig,  prior=ssvs, v1 = 5, v2 = 206.623720063346, r = 0.000108329287060479,nocenter,ssvsupdate=gibbs)+ years(pspline, prior = ssvs, v1 = 5, v2 = 0.511880109122076,r = 0.000342239043010924,ssvsupdate=gibbs, centermethod=nullspace)+ ncountrys(pspline, prior = ssvs, v1 = 5, v2 = 0.51823046838236,r = 0.000340535716254245,ssvsupdate=gibbs, centermethod=nullspace)+ nclaimss(pspline, prior = ssvs, v1 = 5, v2 = 0.509178060973639,r = 0.000343733536850348,ssvsupdate=gibbs, centermethod=nullspace) weight w1,family=zip predict = light setseed=121 equationtype=lambda using d
+
+
+MCMCREG OBJECT m1: MAIN lambda REGRESSION_ncit
+
+GENERAL OPTIONS:
+
+  Number of iterations:  12000
+  Burn-in period:        2000
+  Thinning parameter:    10
+  Saveestimation:        disabled
+
+
+
+RESPONSE DISTRIBUTION:
+
+  Family: ZIP
+  Number of observations: 4805
+  Number of observations with positive weights: 4322
+
+  Response function (lambda): exponential
+  Response function (pi): logistic distribution function
+
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    years       5        26.3     0.000108
+    ncountrys   5        41.2     0.000108
+    nclaimss    5        9.62     0.000108
+    ustwin      5        207      0.000108
+    opp         5        207      0.000108
+    biopharm    5        207      0.000108
+    patus       5        207      0.000108
+    patgsgr     5        207      0.000108
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.8483428
+  Last knot: 1.5525191
+  Knot distance: 0.23162431
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.8483428(0.23162431)1.5525191) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.511880109122076
+  Parameter r for spike: 0.000342239043010924
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.6819324
+  Last knot: 2.279559
+  Knot distance: 0.20849955
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.6819324(0.20849955)2.279559) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.51823046838236
+  Parameter r for spike: 0.000340535716254245
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.4533633
+  Last knot: 4.6938785
+  Knot distance: 0.32353904
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.4533633(0.32353904)4.6938785) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.509178060973639
+  Parameter r for spike: 0.000343733536850348
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+
+
+MCMCREG OBJECT m1: MAIN pi REGRESSION_ncit
+
+RESPONSE DISTRIBUTION:
+
+  Family: ZIP_pi
+  Number of observations: 4805
+  Number of observations with positive weights: 4322
+
+  Response function (pi): logistic distribution function
+
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    years       5        26.3     0.000108
+    ncountrys   5        41.2     0.000108
+    nclaimss    5        9.62     0.000108
+    ustwin      5        207      0.000108
+    opp         5        207      0.000108
+    biopharm    5        207      0.000108
+    patus       5        207      0.000108
+    patgsgr     5        207      0.000108
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.8483428
+  Last knot: 1.5525191
+  Knot distance: 0.23162431
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.8483428(0.23162431)1.5525191) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.511880109122076
+  Parameter r for spike: 0.000342239043010924
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.6819324
+  Last knot: 2.279559
+  Knot distance: 0.20849955
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.6819324(0.20849955)2.279559) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.51823046838236
+  Parameter r for spike: 0.000340535716254245
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.4533633
+  Last knot: 4.6938785
+  Knot distance: 0.32353904
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.4533633(0.32353904)4.6938785) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.509178060973639
+  Parameter r for spike: 0.000343733536850348
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+
+MCMC SIMULATION STARTED
+
+  COMPUTING STARTING VALUES (MAY TAKE SOME TIME)
+  ITERATION: 1
+
+  APPROXIMATE RUN TIME: 2 minutes 21 seconds
+
+  ITERATION: 1000
+  ITERATION: 2000
+  ITERATION: 3000
+  ITERATION: 4000
+  ITERATION: 5000
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    98.52 %
+
+  Relative Changes in  
+
+  Mean:               0.0495676
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: linear effects with ssvs prior
+
+  Acceptance rate:    62.03 %
+
+  Relative Changes in  
+
+  Mean:               0.685919
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    93.4 %
+
+  Relative Changes in  
+
+  Mean:               0.901577
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    80.69 %
+
+  Relative Changes in  
+
+  Mean:               0.433154
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    88.49 %
+
+  Relative Changes in  
+
+  Mean:               0.703752
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    99.44 %
+
+  Relative Changes in  
+
+  Mean:               0.68872
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects with ssvs prior
+
+  Acceptance rate:    47.7 %
+
+  Relative Changes in  
+
+  Mean:               0.929227
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    94.15 %
+
+  Relative Changes in  
+
+  Mean:               0.992762
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    94.07 %
+
+  Relative Changes in  
+
+  Mean:               0.839861
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    99.79 %
+
+  Relative Changes in  
+
+  Mean:               0.989775
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+  ITERATION: 6000
+  ITERATION: 7000
+  ITERATION: 8000
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    98.53 %
+
+  Relative Changes in  
+
+  Mean:               0.000736466
+  Variance:           0.156734
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_lambda_REGRESSION_ncit: linear effects with ssvs prior
+
+  Acceptance rate:    61.24 %
+
+  Relative Changes in  
+
+  Mean:               0.0263542
+  Variance:           0.309499
+  Minimum:            0.0211549
+  Maximum:            0.0547396
+
+
+
+  MAIN_lambda_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.254768
+  Variance:           0.36465
+  Minimum:            0.148841
+  Maximum:            0.00546874
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    92.91 %
+
+  Relative Changes in  
+
+  Mean:               0.0710752
+  Variance:           0.315952
+  Minimum:            0.020342
+  Maximum:            0.0235916
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               2.2823
+  Variance:           85.2039
+  Minimum:            2.17721e-08
+  Maximum:            18.8329
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    81.03 %
+
+  Relative Changes in  
+
+  Mean:               0.0263372
+  Variance:           0.0714957
+  Minimum:            0.138529
+  Maximum:            0.0440271
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0600056
+  Variance:           0.252926
+  Minimum:            0.449017
+  Maximum:            0.531261
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    89.16 %
+
+  Relative Changes in  
+
+  Mean:               0.0145948
+  Variance:           0.0545136
+  Minimum:            0.0958535
+  Maximum:            0.0895848
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.146768
+  Variance:           0.425767
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    99.42 %
+
+  Relative Changes in  
+
+  Mean:               0.375789
+  Variance:           0.00323878
+  Minimum:            0
+  Maximum:            0.096015
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects with ssvs prior
+
+  Acceptance rate:    47.46 %
+
+  Relative Changes in  
+
+  Mean:               0.194525
+  Variance:           0.0550042
+  Minimum:            0.898323
+  Maximum:            0.0815043
+
+
+
+  MAIN_pi_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.212316
+  Variance:           0.358906
+  Minimum:            0.193633
+  Maximum:            0.00254018
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    93.88 %
+
+  Relative Changes in  
+
+  Mean:               0.264715
+  Variance:           0.0695789
+  Minimum:            0.240069
+  Maximum:            0.271247
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.116096
+  Variance:           0.166299
+  Minimum:            0.0586915
+  Maximum:            2.99414e-05
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    93.77 %
+
+  Relative Changes in  
+
+  Mean:               0.0741076
+  Variance:           0.0752231
+  Minimum:            0.190207
+  Maximum:            0.0949919
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0851063
+  Variance:           0.366325
+  Minimum:            0.043209
+  Maximum:            0.000119796
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    99.73 %
+
+  Relative Changes in  
+
+  Mean:               0.386253
+  Variance:           0.145032
+  Minimum:            0.406981
+  Maximum:            0.332069
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.450998
+  Variance:           0.485523
+  Minimum:            0
+  Maximum:            0
+
+
+  ITERATION: 9000
+  ITERATION: 10000
+  ITERATION: 11000
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    98.52 %
+
+  Relative Changes in  
+
+  Mean:               0.00656414
+  Variance:           0.0317345
+  Minimum:            0.00161093
+  Maximum:            0
+
+
+
+  MAIN_lambda_REGRESSION_ncit: linear effects with ssvs prior
+
+  Acceptance rate:    61.88 %
+
+  Relative Changes in  
+
+  Mean:               0.0351774
+  Variance:           0.134686
+  Minimum:            0
+  Maximum:            0.0154708
+
+
+
+  MAIN_lambda_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.135924
+  Variance:           0.28244
+  Minimum:            0.021039
+  Maximum:            0.0315898
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    92.42 %
+
+  Relative Changes in  
+
+  Mean:               0.0555826
+  Variance:           0.150452
+  Minimum:            0.0722266
+  Maximum:            0.00911886
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.219838
+  Variance:           0.301957
+  Minimum:            0.554991
+  Maximum:            1.44178e-09
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    80.88 %
+
+  Relative Changes in  
+
+  Mean:               0.0358882
+  Variance:           0.0270879
+  Minimum:            0.0473047
+  Maximum:            0.0638309
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0237785
+  Variance:           0.0148194
+  Minimum:            0.0241876
+  Maximum:            7.67219e-05
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    88.97 %
+
+  Relative Changes in  
+
+  Mean:               0.0134763
+  Variance:           0.0476009
+  Minimum:            0.196016
+  Maximum:            0.0901849
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0612443
+  Variance:           0.231149
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+  Acceptance rate:    99.44 %
+
+  Relative Changes in  
+
+  Mean:               0.0318111
+  Variance:           0.0250007
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects with ssvs prior
+
+  Acceptance rate:    47.65 %
+
+  Relative Changes in  
+
+  Mean:               0.0224109
+  Variance:           0.0369977
+  Minimum:            0.0305993
+  Maximum:            0.0695818
+
+
+
+  MAIN_pi_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.129658
+  Variance:           0.641798
+  Minimum:            0.0497792
+  Maximum:            0.772639
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+  Acceptance rate:    93.93 %
+
+  Relative Changes in  
+
+  Mean:               0.0238998
+  Variance:           0.0276988
+  Minimum:            0.0505159
+  Maximum:            0.0270519
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0716966
+  Variance:           0.568376
+  Minimum:            0.000142125
+  Maximum:            0.386185
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+  Acceptance rate:    93.78 %
+
+  Relative Changes in  
+
+  Mean:               0.0271831
+  Variance:           0.0416176
+  Minimum:            0.0272714
+  Maximum:            0.0750491
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0145091
+  Variance:           0.182294
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+  Acceptance rate:    99.71 %
+
+  Relative Changes in  
+
+  Mean:               0.0744224
+  Variance:           0.0702024
+  Minimum:            0.166621
+  Maximum:            0.108998
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.98777
+  Variance:           2.15336
+  Minimum:            1.69729e-12
+  Maximum:            0.486088
+
+
+  ITERATION: 12000
+
+SIMULATION TERMINATED
+
+SIMULATION RUN TIME: 2 minutes 29 seconds
+
+
+ESTIMATION RESULTS:
+
+
+MCMCREG OBJECT m1: MAIN lambda REGRESSION_ncit
+
+
+
+  MAIN_lambda_REGRESSION_ncit: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     0.817398       0.0811435      0.637765       0.819436       0.967108       
+
+    Acceptance rate:    98.52 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects.res
+
+
+  MAIN_lambda_REGRESSION_ncit: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     -0.00268717    0.137134       -0.157797      -0.0141257     0.391479       
+    ncountrys -0.0714291     0.0631262      -0.212006      -0.0646981     0.0236867      
+    nclaimss  0.127007       0.0269024      0.0728713      0.127071       0.178          
+    ustwin    0.0436134      0.0303739      -0.00961388    0.0437768      0.103776       
+    opp       0.164399       0.0150775      0.135151       0.164507       0.192408       
+    biopharm  0.13227        0.0188405      0.0951348      0.131581       0.171976       
+    patus     0.0868118      0.0160781      0.0534422      0.0872279      0.118646       
+    patgsgr   -0.0697615     0.0201734      -0.109319      -0.0699716     -0.0286098     
+
+    Acceptance rate:    61.88 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  MAIN_lambda_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.919852       3.55903        1.54943e-05    0.00491734     8.50516        
+    ncountrys 1.04501        10.3402        1.16848e-05    0.00279264     7.10865        
+    nclaimss  0.663426       1.55556        0.00147402     0.130083       4.8517         
+    ustwin    0.404179       5.41599        2.61932e-05    0.00300035     0.361469       
+    opp       3.48037        23.9394        0.00371852     0.0172362      37.1614        
+    biopharm  1.0256         6.44123        0.00240132     0.0113575      11.2407        
+    patus     0.94899        8.20031        0.00124204     0.00735995     2.64244        
+    patgsgr   0.309067       2.73343        0.000708898    0.00534323     1.03175        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.449          0.497392       0              0              1              
+    ncountrys 0.28           0.448999       0              0              1              
+    nclaimss  0.917          0.275882       0              1              1              
+    ustwin    0.052          0.222027       0              0              1              
+    opp       0.238          0.425859       0              0              1              
+    biopharm  0.149          0.356088       0              0              1              
+    patus     0.096          0.294591       0              0              1              
+    patgsgr   0.067          0.250022       0              0              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.446446       0.480621       0.00058241     0.0497991      1              
+    ncountrys 0.274137       0.424034       0.000620232    0.015093       1              
+    nclaimss  0.912046       0.272143       0.00646759     1              1              
+    ustwin    0.04745        0.176937       0.000466448    0.0069211      1              
+    opp       0.239052       0.396365       0.000798822    0.0194839      1              
+    biopharm  0.150138       0.321144       0.000741661    0.0149002      1              
+    patus     0.0869975      0.246103       0.000637488    0.0101072      1              
+    patgsgr   0.0700853      0.217836       0.00049689     0.00854746     1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.321266
+    Std. dev.:      0.187329
+    2.5% Quantile:  0.030882
+    10% Quantile:   0.0941114
+    50% Quantile:   0.299158
+    90% Quantile:   0.595583
+    97.5% Quantile: 0.739107
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_omega.res
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+    Acceptance rate:    92.42 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years.res
+
+    Mean effects evaluated at years=-0.0134161827578266 with value 0.00634328141984099
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.76736
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.4612
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of years
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0155216
+    Std. dev.:      0.0250823
+    2.5% Quantile:  2.96738e-07
+    10% Quantile:   2.67168e-06
+    50% Quantile:   0.00561057
+    90% Quantile:   0.042536
+    97.5% Quantile: 0.0826579
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.627          0.483602       0              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.628573       0.472643       0.00113251     1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.122334
+    Std. dev.:      0.0690814
+    2.5% Quantile:  0.0464838
+    10% Quantile:   0.0611633
+    50% Quantile:   0.105185
+    90% Quantile:   0.196147
+    97.5% Quantile: 0.315831
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.537361
+    Std. dev.:      0.281891
+    2.5% Quantile:  0.0283539
+    10% Quantile:   0.139229
+    50% Quantile:   0.554762
+    90% Quantile:   0.91135
+    97.5% Quantile: 0.985153
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_omega.res
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+    Acceptance rate:    80.88 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys.res
+
+    Mean effects evaluated at ncountrys=0.0560748548266889 with value 0.0750608128612231
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.80958
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.47816
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0579956
+    Std. dev.:      0.055961
+    2.5% Quantile:  0.00921497
+    10% Quantile:   0.0149211
+    50% Quantile:   0.041239
+    90% Quantile:   0.114584
+    97.5% Quantile: 0.197863
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    ncountrys 1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    ncountrys 1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.124642
+    Std. dev.:      0.0699507
+    2.5% Quantile:  0.046757
+    10% Quantile:   0.0632444
+    50% Quantile:   0.107809
+    90% Quantile:   0.209511
+    97.5% Quantile: 0.30319
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.674847
+    Std. dev.:      0.239449
+    2.5% Quantile:  0.152383
+    10% Quantile:   0.30687
+    50% Quantile:   0.723883
+    90% Quantile:   0.956633
+    97.5% Quantile: 0.988967
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_omega.res
+
+
+
+  MAIN_lambda_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+    Acceptance rate:    88.98 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss.res
+
+    Mean effects evaluated at nclaimss=-0.0401618394422281 with value 0.0176720505713412
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.91109
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.4988
+
+
+
+  MAIN_lambda_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0114269
+    Std. dev.:      0.0124392
+    2.5% Quantile:  0.00127508
+    10% Quantile:   0.00243329
+    50% Quantile:   0.00793954
+    90% Quantile:   0.022719
+    97.5% Quantile: 0.0474593
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    nclaimss  0.995          0.0705337      1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    nclaimss  0.995255       0.0606238      0.999965       1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.119085
+    Std. dev.:      0.0640396
+    2.5% Quantile:  0.0472104
+    10% Quantile:   0.0601278
+    50% Quantile:   0.103733
+    90% Quantile:   0.197209
+    97.5% Quantile: 0.310384
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.676503
+    Std. dev.:      0.229605
+    2.5% Quantile:  0.176137
+    10% Quantile:   0.322894
+    50% Quantile:   0.714643
+    90% Quantile:   0.947436
+    97.5% Quantile: 0.98907
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_omega.res
+
+
+  PREDICTED VALUES: 
+
+    Results for the predictor, mean are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_predict.res
+
+
+  ESTIMATION RESULT FOR THE DEVIANCE: 
+
+    Mean:           14968.687
+    Std. Dev:       16.307666
+    2p5% Quantile:  14937.284
+    10% Quantile:   14946.807
+    50% Quantile:   14969.164
+    90% Quantile:   14988.636
+    97p5% Quantile: 15000.103
+
+
+    Results for the DIC are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_predict_DIC.res
+
+  ESTIMATION RESULTS FOR THE DIC: 
+
+    Deviance(bar_mu):           14917.549
+    pD:                         51.137883
+    DIC:                        15019.824
+
+
+    Results for the WAIC are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_predict_WAIC.res
+
+  ESTIMATION RESULTS FOR THE WAIC: 
+
+    l_pd:                       14847.852
+    p_d:                        129.46114
+    WAIC:                       15106.774
+
+
+
+MCMCREG OBJECT m1: MAIN pi REGRESSION_ncit
+
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     -0.0812872     0.166683       -0.43854       -0.0731182     0.226463       
+
+    Acceptance rate:    99.44 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects.res
+
+
+  MAIN_pi_REGRESSION_ncit: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.155066       0.258936       -0.212277      0.039702       0.793505       
+    ncountrys 0.233609       0.136467       -0.0125701     0.240473       0.499865       
+    nclaimss  -0.00140176    0.0207704      -0.0471098     -0.000901543   0.0427571      
+    ustwin    0.0321656      0.0584396      -0.0715531     0.019974       0.16387        
+    opp       -0.114389      0.041959       -0.196039      -0.115711      -0.0246951     
+    biopharm  0.145012       0.0569668      0.0292042      0.142243       0.257235       
+    patus     0.239883       0.0473986      0.149956       0.240724       0.330016       
+    patgsgr   0.164153       0.0593955      0.048681       0.162066       0.277264       
+
+    Acceptance rate:    47.65 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  MAIN_pi_REGRESSION_ncit: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     1.22205        3.73494        1.28663e-05    0.00278248     12.4284        
+    ncountrys 2.68237        7.3078         0.000180655    0.332709       20.1266        
+    nclaimss  0.0418677      0.347049       1.38875e-06    0.000203342    0.275258       
+    ustwin    0.195747       2.65921        9.70413e-06    0.00291417     0.324564       
+    opp       1.89731        16.1452        0.000867628    0.00978173     8.58405        
+    biopharm  3.00176        17.9801        0.00116306     0.0132684      27.2567        
+    patus     5.49792        28.0024        0.00574042     0.0362133      45.6909        
+    patgsgr   3.25884        20.9102        0.0016979      0.0152022      29.6668        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.435          0.495757       0              0              1              
+    ncountrys 0.722          0.448013       0              1              1              
+    nclaimss  0.088          0.283295       0              0              1              
+    ustwin    0.046          0.209485       0              0              1              
+    opp       0.145          0.352101       0              0              1              
+    biopharm  0.191          0.393089       0              0              1              
+    patus     0.415          0.492722       0              0              1              
+    patgsgr   0.225          0.417582       0              0              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     0.442263       0.487007       0.000581793    0.0301867      1              
+    ncountrys 0.718663       0.437372       0.000783073    1              1              
+    nclaimss  0.0960595      0.266004       0.000540101    0.00795819     1              
+    ustwin    0.0497071      0.181621       0.000477273    0.00707915     0.999999       
+    opp       0.142285       0.317054       0.000631453    0.0123907      1              
+    biopharm  0.188966       0.362144       0.000807825    0.0148746      1              
+    patus     0.418155       0.468936       0.00105198     0.0581087      1              
+    patgsgr   0.226148       0.388559       0.000823546    0.0172738      1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.323501
+    Std. dev.:      0.200689
+    2.5% Quantile:  0.0246947
+    10% Quantile:   0.082905
+    50% Quantile:   0.294239
+    90% Quantile:   0.618488
+    97.5% Quantile: 0.787966
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_omega.res
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of years
+
+    Acceptance rate:    93.93 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years.res
+
+    Mean effects evaluated at years=-0.0134161827578266 with value -0.642229354495298
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.72191
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.41664
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of years
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0497551
+    Std. dev.:      0.0501071
+    2.5% Quantile:  0.00537331
+    10% Quantile:   0.0102122
+    50% Quantile:   0.0334101
+    90% Quantile:   0.106907
+    97.5% Quantile: 0.205429
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    years     1              3.39308e-07    1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.120431
+    Std. dev.:      0.0625474
+    2.5% Quantile:  0.0499962
+    10% Quantile:   0.0624138
+    50% Quantile:   0.106781
+    90% Quantile:   0.187606
+    97.5% Quantile: 0.286807
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.660057
+    Std. dev.:      0.233283
+    2.5% Quantile:  0.165956
+    10% Quantile:   0.307424
+    50% Quantile:   0.701997
+    90% Quantile:   0.935543
+    97.5% Quantile: 0.981863
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_omega.res
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of ncountrys
+
+    Acceptance rate:    93.78 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys.res
+
+    Mean effects evaluated at ncountrys=0.0560748548266889 with value 0.0713828816929792
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.81437
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.52181
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of ncountrys
+
+    Acceptance rate:    100 %
+
+    Mean:           0.16177
+    Std. dev.:      0.151302
+    2.5% Quantile:  0.0146755
+    10% Quantile:   0.0336608
+    50% Quantile:   0.119568
+    90% Quantile:   0.330151
+    97.5% Quantile: 0.589171
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    ncountrys 1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    ncountrys 1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.131338
+    Std. dev.:      0.0702812
+    2.5% Quantile:  0.0528352
+    10% Quantile:   0.0685078
+    50% Quantile:   0.111056
+    90% Quantile:   0.218275
+    97.5% Quantile: 0.303522
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.676443
+    Std. dev.:      0.24037
+    2.5% Quantile:  0.155026
+    10% Quantile:   0.306298
+    50% Quantile:   0.729444
+    90% Quantile:   0.949191
+    97.5% Quantile: 0.987338
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_omega.res
+
+
+
+  MAIN_pi_REGRESSION_ncit:  Nonlinear effect (P-spline) of nclaimss
+
+    Acceptance rate:    99.71 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss.res
+
+    Mean effects evaluated at nclaimss=-0.0401618394422281 with value -0.00361401015535372
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.91104
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.70894
+
+
+
+  MAIN_pi_REGRESSION_ncit: Variance of nonlinear effect of nclaimss
+
+    Acceptance rate:    100 %
+
+    Mean:           8.02674e-05
+    Std. dev.:      0.000362383
+    2.5% Quantile:  1.13268e-08
+    10% Quantile:   5.1396e-07
+    50% Quantile:   1.88616e-05
+    90% Quantile:   0.000128475
+    97.5% Quantile: 0.00035503
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    nclaimss  0.062          0.241156       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    nclaimss  0.0582345      0.164602       0.00025968     0.0126497      0.754202       
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.126467
+    Std. dev.:      0.073489
+    2.5% Quantile:  0.0478998
+    10% Quantile:   0.062372
+    50% Quantile:   0.107645
+    90% Quantile:   0.210159
+    97.5% Quantile: 0.292191
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.35796
+    Std. dev.:      0.261158
+    2.5% Quantile:  0.0149195
+    10% Quantile:   0.0549002
+    50% Quantile:   0.304189
+    90% Quantile:   0.7597
+    97.5% Quantile: 0.922547
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_omega.res
+
+
+  FILES FOR VISUALIZING RESULTS:
+
+    STATA DO-FILE
+
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_stata.do
+
+    R-FILE
+
+    /home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_R.r
+
+> m1.getsample
+
+Storing sampled parameters...
+Sampled parameters are stored in file(s):
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_omega_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_psi2_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_omega_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_psi2_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_omega_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_psi2_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_omega_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_psi2_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_omega_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_psi2_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_sample.raw
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_delta_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_omega_sample.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_psi2_sample.raw
+
+File for convenient visualization of 
+sampling paths using the Windows version of BayesX is stored in
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_samples.prg
+
+
+> m1.autocor
+
+Computing autocorrelation functions...
+Autocorrelations are stored in file(s):
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_ssvs_var_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_ssvs_var_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_autocor.raw
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_autocor.raw
+File for convenient computation and visualization of 
+autocorrelations using the Windows version of BayesX is stored in
+
+/home/mcarlan/VarSel/patent/results/score_batches_zip_ssvs_alpha0.05/predict1/lambda_autocor.prg
+
+> drop m1
+
+> drop d
+
+> logclose
+

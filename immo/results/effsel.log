@@ -1,0 +1,4178 @@
+> dataset d2
+
+> d2.infile using /home/mcarlan/VarSel/immo2/data/kreis1_neu.txt
+
+NOTE: 5 variables with 402 observations read from file
+/home/mcarlan/VarSel/immo2/data/kreis1_neu.txt
+
+> d2.generate kgs4 =kgs05a
+
+> d2.generate kgs4a =kgs05a
+
+> d2.generate kgs5 =kgs05a
+
+> dataset rating_s
+
+> rating_s.infile using /home/mcarlan/VarSel/immo2/data/rating_s.raw
+
+NOTE: 1 variables with 402 observations read from file
+/home/mcarlan/VarSel/immo2/data/rating_s.raw
+
+> dataset wfl_s
+
+> wfl_s.infile using /home/mcarlan/VarSel/immo2/data/wfl_s.raw
+
+NOTE: 1 variables with 402 observations read from file
+/home/mcarlan/VarSel/immo2/data/wfl_s.raw
+
+> dataset grstfl_s
+
+> grstfl_s.infile using /home/mcarlan/VarSel/immo2/data/grstfl_s.raw
+
+ERROR: file /home/mcarlan/VarSel/immo2/data/grstfl_s.raw could not be opened for reading
+
+> dataset baujahr_s
+
+> baujahr_s.infile using /home/mcarlan/VarSel/immo2/data/baujahr_s.raw
+
+NOTE: 1 variables with 402 observations read from file
+/home/mcarlan/VarSel/immo2/data/baujahr_s.raw
+
+> dataset K1
+
+> K1.infile using /home/mcarlan/VarSel/immo2/data/K1.raw
+
+NOTE: 1 variables with 1 observations read from file
+/home/mcarlan/VarSel/immo2/data/K1.raw
+
+> dataset K2
+
+> K2.infile using /home/mcarlan/VarSel/immo2/data/K2.raw
+
+NOTE: 1 variables with 1 observations read from file
+/home/mcarlan/VarSel/immo2/data/K2.raw
+
+> dataset K3
+
+> K3.infile using /home/mcarlan/VarSel/immo2/data/K3.raw
+
+NOTE: 1 variables with 1 observations read from file
+/home/mcarlan/VarSel/immo2/data/K3.raw
+
+> dataset K4
+
+> K4.infile using /home/mcarlan/VarSel/immo2/data/K4.raw
+
+NOTE: 1 variables with 1 observations read from file
+/home/mcarlan/VarSel/immo2/data/K4.raw
+
+> dataset d
+
+> d.infile using /home/mcarlan/VarSel/immo2/data/subsample1a_aufb.raw
+
+NOTE: 12 variables with 98534 observations read from file
+/home/mcarlan/VarSel/immo2/data/subsample1a_aufb.raw
+
+> d.generate kgs4 =kgs05a
+
+> d.generate kgs4a =kgs05a
+
+> d.generate kgs5 =kgs05a
+
+> map m
+
+> m.infile using /home/mcarlan/VarSel/immo2/data/map4.bnd
+
+NOTE: 402 regions read from file /home/mcarlan/VarSel/immo2/data/map4.bnd
+> mcmcreg b
+
+> b.outfile =/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2
+
+> b.hregress kgs4 =  baujahr_s(ssvs, gig, v1=5, v2=4.522987, r=0.000450258)+ baujahr_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1271951, r=0.002262521, ssvsupdate=gibbs) + rating_s(ssvs, gig, v1=5, v2=6.004576, r=0.000450258)+ rating_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1271967, r=0.002262497, ssvsupdate=gibbs) + kgs4a(spatial,map=m,prior=ssvs, v1=5, v2=0.3779224, r=0.004379613, ssvsupdate=gibbs), family=gaussian_re equationtype=sigma2 iterations=12000 burnin=1000 step=10 hlevel=2 using d2
+
+> b.outfile =/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1
+
+> b.hregress pqm_s = const + wfl_s(ssvs, gig, v1=5, v2=4.882433, r=0.000450258) + wfl_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1272266, r=0.002262134, ssvsupdate=gibbs) + grstfl_s(ssvs, gig, v1=5, v2=2.288634, r=0.000450258)+ grstfl_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.127195, r=0.002262537, ssvsupdate=gibbs) + baujahr_s(ssvs, gig, v1=5, v2=1.721913, r=0.000450258)+ baujahr_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1271957, r=0.002262518, ssvsupdate=gibbs) + rating_s(ssvs, gig, v1=5, v2=1.047535, r=0.000450258)+ rating_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1284191, r=0.002247759, ssvsupdate=gibbs) + kgs4(hrandom), saveestimation setseed=12345 family=normal equationtype=sigma2  using d
+
+> b.outfile =/home/mcarlan/VarSel/immo2/results/effsel_mu_level2
+
+> b.hregress kgs5 =  baujahr_s(ssvs, gig, v1=5, v2=4.522987, r=0.000450258)+ baujahr_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1271951, r=0.002262521, ssvsupdate=gibbs) + rating_s(ssvs, gig, v1=5, v2=6.004576, r=0.000450258)+ rating_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1271967, r=0.002262497, ssvsupdate=gibbs) + kgs05a(spatial,map=m,prior=ssvs, v1=5, v2=0.3779224, r=0.004379613, ssvsupdate=gibbs), family=gaussian_re equationtype=mu  hlevel=2 using d2
+
+> b.outfile =/home/mcarlan/VarSel/immo2/results/effsel_mu_level1
+
+> b.hregress pqm_s = const + wfl_s(ssvs, gig, v1=5, v2=4.882433, r=0.000450258) + wfl_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1272266, r=0.002262134, ssvsupdate=gibbs) + grstfl_s(ssvs, gig, v1=5, v2=2.288634, r=0.000450258)+ grstfl_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.127195, r=0.002262537, ssvsupdate=gibbs) + baujahr_s(ssvs, gig, v1=5, v2=1.721913, r=0.000450258)+ baujahr_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1271957, r=0.002262518, ssvsupdate=gibbs) + rating_s(ssvs, gig, v1=5, v2=1.047535, r=0.000450258)+ rating_s(pspline, centermethod=nullspace, prior=ssvs, v1=5, v2=0.1284191, r=0.002247759, ssvsupdate=gibbs) + kgs5(hrandom) , saveestimation setseed=1 family=normal equationtype=mu iterations=12000 burnin=2000 step=10 predict=light WAICoff using d
+
+
+MCMCREG OBJECT b: MAIN mu REGRESSION_pqm_s
+
+GENERAL OPTIONS:
+
+  Number of iterations:  12000
+  Burn-in period:        1000
+  Thinning parameter:    10
+  Saveestimation:        disabled
+
+
+
+RESPONSE DISTRIBUTION:
+
+  Family: Normal Distribution - mu
+  Number of observations: 98534
+  Number of observations with positive weights: 98534
+
+  Response function (mu): identity
+
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    wfl_s       5        4.88     0.00045
+    grstfl_s    5        2.29     0.00045
+    baujahr_s   5        1.72     0.00045
+    rating_s    5        1.05     0.00045
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.3320789
+  Last knot: 2.7827029
+  Knot distance: 0.26919904
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.3320789(0.26919904)2.7827029) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1272266
+  Parameter r for spike: 0.002262134
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.7630423
+  Last knot: 4.0481343
+  Knot distance: 0.3058514
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.7630423(0.3058514)4.0481343) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.127195
+  Parameter r for spike: 0.002262537
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -3.1999905
+  Last knot: 1.0607005
+  Knot distance: 0.22424689
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-3.1999905(0.22424689)1.0607005) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1271957
+  Parameter r for spike: 0.002262518
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.7888153
+  Last knot: 3.4422953
+  Knot distance: 0.32795319
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.7888153(0.32795319)3.4422953) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1284191
+  Parameter r for spike: 0.002247759
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_mu_REGRESSION_pqm_s: Random effect of kgs5
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.001
+  Hyperprior b for variance parameter: 0.001
+
+
+
+MCMCREG OBJECT b: RANDOM EFFECTS mu REGRESSION
+
+RANDOM EFFECTS DISTRIBUTION:
+
+  Family: Gaussian_random_effect
+  Number of clusters: 402
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    baujahr_s   5        4.52     0.00045
+    rating_s    5        6        0.00045
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.69394
+  Last knot: 2.8938441
+  Knot distance: 0.2940939
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.69394(0.2940939)2.8938441) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1271951
+  Parameter r for spike: 0.002262521
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.3862254
+  Last knot: 2.5120545
+  Knot distance: 0.25780421
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.3862254(0.25780421)2.5120545) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1271967
+  Parameter r for spike: 0.002262497
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.3779224
+  Parameter r for spike: 0.004379613
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+
+
+MCMCREG OBJECT b: MAIN sigma2 REGRESSION_pqm_s
+
+RESPONSE DISTRIBUTION:
+
+  Family: Normal Distribution - sigma2
+  Number of observations: 98534
+  Number of observations with positive weights: 98534
+
+  Link function (sigma2): log
+
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    wfl_s       5        4.88     0.00045
+    grstfl_s    5        2.29     0.00045
+    baujahr_s   5        1.72     0.00045
+    rating_s    5        1.05     0.00045
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.3320789
+  Last knot: 2.7827029
+  Knot distance: 0.26919904
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.3320789(0.26919904)2.7827029) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1272266
+  Parameter r for spike: 0.002262134
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -1.7630423
+  Last knot: 4.0481343
+  Knot distance: 0.3058514
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-1.7630423(0.3058514)4.0481343) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.127195
+  Parameter r for spike: 0.002262537
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -3.1999905
+  Last knot: 1.0607005
+  Knot distance: 0.22424689
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-3.1999905(0.22424689)1.0607005) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1271957
+  Parameter r for spike: 0.002262518
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.7888153
+  Last knot: 3.4422953
+  Knot distance: 0.32795319
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.7888153(0.32795319)3.4422953) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1284191
+  Parameter r for spike: 0.002247759
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  MAIN_sigma2_REGRESSION_pqm_s: Random effect of kgs4
+
+  Inverse gamma prior
+  Hyperprior a for variance parameter: 0.001
+  Hyperprior b for variance parameter: 0.001
+
+
+
+MCMCREG OBJECT b: RANDOM EFFECTS sigma2 REGRESSION
+
+RANDOM EFFECTS DISTRIBUTION:
+
+  Family: Gaussian_random_effect
+  Number of clusters: 402
+
+OPTIONS FOR ESTIMATION:
+
+  Hyperparameters for SSVS priors of linear effects:
+
+    Variable    v1       v2       r        
+    baujahr_s   5        4.52     0.00045
+    rating_s    5        6        0.00045
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.69394
+  Last knot: 2.8938441
+  Knot distance: 0.2940939
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.69394(0.2940939)2.8938441) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1271951
+  Parameter r for spike: 0.002262521
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Prior: second order random walk
+  Number of knots: 20
+  First knot: -2.3862254
+  Last knot: 2.5120545
+  Knot distance: 0.25780421
+  Degree of Splines: 3
+  centered sampling
+  B-spline basis may be created e.g. in STATA by: 
+  bspline , xvar(x) generate(Bs) power(3) knots(-2.3862254(0.25780421)2.5120545) 
+  where x contains the values for which the basis functions should be created
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.1271967
+  Parameter r for spike: 0.002262497
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  IG prior for psi2 
+  Hyperparameter v1 for prior: 5
+  Hyperparameter v2 for prior: 0.3779224
+  Parameter r for spike: 0.004379613
+
+  Prior inclusion probability omega
+  Parameter a_omega: 1
+  Parameter b_omega: 1
+
+
+MCMC SIMULATION STARTED
+
+  COMPUTING STARTING VALUES (MAY TAKE SOME TIME)
+
+WARNING: AT LEAST ONE EQUATION CONTAINS NO INTERCEPT
+         Intercept may be specified using const in linear effects term
+
+
+WARNING: AT LEAST ONE EQUATION CONTAINS NO INTERCEPT
+         Intercept may be specified using const in linear effects term
+
+  ITERATION: 1
+
+  APPROXIMATE RUN TIME: 35 minutes 28 seconds
+
+  ITERATION: 1000
+  ITERATION: 2000
+  ITERATION: 3000
+  ITERATION: 4000
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.259119
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects with ssvs prior
+
+  Acceptance rate:    99.16 %
+
+  Relative Changes in  
+
+  Mean:               0.154288
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.447895
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.281557
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.756148
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.344781
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Random effect of kgs5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0725101
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of random effect of kgs5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               47163.5
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.462935
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.22165
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.92539
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of spatial effect of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects
+
+  Acceptance rate:    99.74 %
+
+  Relative Changes in  
+
+  Mean:               0.370004
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects with ssvs prior
+
+  Acceptance rate:    89.54 %
+
+  Relative Changes in  
+
+  Mean:               0.605002
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Acceptance rate:    96.25 %
+
+  Relative Changes in  
+
+  Mean:               0.89963
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Acceptance rate:    98.33 %
+
+  Relative Changes in  
+
+  Mean:               0.308843
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    92.65 %
+
+  Relative Changes in  
+
+  Mean:               1.99452
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    93.61 %
+
+  Relative Changes in  
+
+  Mean:               0.614698
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Random effect of kgs4
+
+  Acceptance rate:    98.04 %
+
+  Relative Changes in  
+
+  Mean:               0.252287
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of random effect of kgs4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               144688
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.847649
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.76935
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               2.11387
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of spatial effect of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               1.79769e+308
+  Variance:           1.79769e+308
+  Minimum:            1.79769e+308
+  Maximum:            1.79769e+308
+
+
+  ITERATION: 5000
+  ITERATION: 6000
+  ITERATION: 7000
+  ITERATION: 8000
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0176679
+  Variance:           0.122104
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects with ssvs prior
+
+  Acceptance rate:    99.22 %
+
+  Relative Changes in  
+
+  Mean:               0.0146207
+  Variance:           0.267894
+  Minimum:            0.00257124
+  Maximum:            0.0406171
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0391645
+  Variance:           0.111712
+  Minimum:            0.0508406
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.048483
+  Variance:           0.0731736
+  Minimum:            0.030301
+  Maximum:            0.138846
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0313143
+  Variance:           0.399252
+  Minimum:            1.16327e-06
+  Maximum:            0.745159
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00337791
+  Variance:           0.0635736
+  Minimum:            0.0333974
+  Maximum:            0.0483603
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0286917
+  Variance:           0.0679253
+  Minimum:            0.592993
+  Maximum:            5.97707e-07
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0523253
+  Variance:           0.222898
+  Minimum:            0.0104521
+  Maximum:            0.127479
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0376968
+  Variance:           0.0642367
+  Minimum:            0.096643
+  Maximum:            0.0693458
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0297739
+  Variance:           0.15265
+  Minimum:            0.0259161
+  Maximum:            0.0633026
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0025737
+  Variance:           0.0249338
+  Minimum:            0.149435
+  Maximum:            5.99052e-05
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Random effect of kgs5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.090461
+  Variance:           0.0894916
+  Minimum:            0.142766
+  Maximum:            0.033888
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of random effect of kgs5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.139055
+  Variance:           2.61863
+  Minimum:            0.237164
+  Maximum:            0.975356
+
+
+
+  RANDOM_EFFECTS_mu: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0975665
+  Variance:           0.0115019
+  Minimum:            0.111399
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.226146
+  Variance:           0.284666
+  Minimum:            6.79886e-05
+  Maximum:            0.813454
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.269995
+  Variance:           0.396751
+  Minimum:            0.313765
+  Maximum:            0.119403
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.487059
+  Variance:           0.495407
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.150087
+  Variance:           0.215184
+  Minimum:            0.163602
+  Maximum:            0.116853
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.249362
+  Variance:           0.477808
+  Minimum:            0.45509
+  Maximum:            1.45296e-05
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.039263
+  Variance:           0.030733
+  Minimum:            0.103608
+  Maximum:            0.102904
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of spatial effect of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00500391
+  Variance:           0.185744
+  Minimum:            0.0418079
+  Maximum:            0.149904
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects
+
+  Acceptance rate:    99.75 %
+
+  Relative Changes in  
+
+  Mean:               0.0390254
+  Variance:           0.467918
+  Minimum:            0.0280516
+  Maximum:            0.1554
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects with ssvs prior
+
+  Acceptance rate:    90 %
+
+  Relative Changes in  
+
+  Mean:               0.012441
+  Variance:           0.202435
+  Minimum:            0.00200976
+  Maximum:            0.0292031
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0430142
+  Variance:           0.198146
+  Minimum:            0.339339
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Acceptance rate:    96.32 %
+
+  Relative Changes in  
+
+  Mean:               0.0117753
+  Variance:           0.061368
+  Minimum:            0.0699912
+  Maximum:            0.0469317
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.013968
+  Variance:           0.066647
+  Minimum:            0.149969
+  Maximum:            0.0106073
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Acceptance rate:    98.48 %
+
+  Relative Changes in  
+
+  Mean:               0.00768273
+  Variance:           0.0291069
+  Minimum:            0.119224
+  Maximum:            0.0571302
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00502263
+  Variance:           0.0147397
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    92.57 %
+
+  Relative Changes in  
+
+  Mean:               0.0325779
+  Variance:           0.185781
+  Minimum:            0.177584
+  Maximum:            0.0771
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0357887
+  Variance:           0.207544
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    93.51 %
+
+  Relative Changes in  
+
+  Mean:               0.0475969
+  Variance:           0.11242
+  Minimum:            0.0872074
+  Maximum:            0.0340392
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0557231
+  Variance:           0.563082
+  Minimum:            0.0467369
+  Maximum:            1.40085
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Random effect of kgs4
+
+  Acceptance rate:    98.04 %
+
+  Relative Changes in  
+
+  Mean:               0.0393604
+  Variance:           0.0754984
+  Minimum:            0.151851
+  Maximum:            0.0876082
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of random effect of kgs4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0345062
+  Variance:           0.318279
+  Minimum:            0.0591098
+  Maximum:            0.433496
+
+
+
+  RANDOM_EFFECTS_sigma2: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.113131
+  Variance:           0.0731428
+  Minimum:            0.0486006
+  Maximum:            0.205156
+
+
+
+  RANDOM_EFFECTS_sigma2: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.114441
+  Variance:           0.384913
+  Minimum:            0.820574
+  Maximum:            0.880826
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.11369
+  Variance:           0.506735
+  Minimum:            0.451799
+  Maximum:            0.540399
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.499574
+  Variance:           0.496871
+  Minimum:            0.0643273
+  Maximum:            9.63468e-15
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.401926
+  Variance:           0.196377
+  Minimum:            0.353822
+  Maximum:            0.129526
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.463224
+  Variance:           22.2629
+  Minimum:            2.56417e-07
+  Maximum:            9.42415
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0511786
+  Variance:           0.0303993
+  Minimum:            0.134535
+  Maximum:            0.114899
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of spatial effect of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.013235
+  Variance:           0.0391423
+  Minimum:            0.04305
+  Maximum:            0.00082806
+
+
+  ITERATION: 9000
+  ITERATION: 10000
+  ITERATION: 11000
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0112776
+  Variance:           0.179935
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects with ssvs prior
+
+  Acceptance rate:    99.25 %
+
+  Relative Changes in  
+
+  Mean:               0.0139
+  Variance:           0.0519434
+  Minimum:            0.00306832
+  Maximum:            0.0249433
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0222644
+  Variance:           0.113004
+  Minimum:            0.0123481
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.011529
+  Variance:           0.0296629
+  Minimum:            0.0208112
+  Maximum:            0.0107782
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0624387
+  Variance:           0.165054
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00273972
+  Variance:           0.03695
+  Minimum:            0.030893
+  Maximum:            0.0298786
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.003107
+  Variance:           0.0636972
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0645094
+  Variance:           0.0607356
+  Minimum:            0.018446
+  Maximum:            0.0457769
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0133137
+  Variance:           0.0591049
+  Minimum:            0.0340955
+  Maximum:            0.0504684
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.00861636
+  Variance:           0.0492847
+  Minimum:            0.0167674
+  Maximum:            0.0375928
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0190639
+  Variance:           0.107513
+  Minimum:            1.93481e-05
+  Maximum:            0.0507117
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Random effect of kgs5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0310443
+  Variance:           0.0384396
+  Minimum:            0.0547743
+  Maximum:            0.0142641
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of random effect of kgs5
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0535042
+  Variance:           0.167769
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0230314
+  Variance:           0.0743746
+  Minimum:            0.0222588
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0565394
+  Variance:           0.13585
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0694123
+  Variance:           0.167372
+  Minimum:            0.0279327
+  Maximum:            0.141552
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.319209
+  Variance:           0.330679
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0241027
+  Variance:           0.094712
+  Minimum:            0.072379
+  Maximum:            0.0586742
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.10569
+  Variance:           0.314955
+  Minimum:            0.00566913
+  Maximum:            1.8203e-07
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0216602
+  Variance:           0.013277
+  Minimum:            0.0763552
+  Maximum:            0.0730033
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_mu: Variance of spatial effect of kgs05a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0173687
+  Variance:           0.0973415
+  Minimum:            0.000116981
+  Maximum:            0.0123241
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects
+
+  Acceptance rate:    99.74 %
+
+  Relative Changes in  
+
+  Mean:               0.000572199
+  Variance:           0.145134
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects with ssvs prior
+
+  Acceptance rate:    89.9 %
+
+  Relative Changes in  
+
+  Mean:               0.00821905
+  Variance:           0.0478859
+  Minimum:            0.00241946
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0175147
+  Variance:           0.0489694
+  Minimum:            0.0471365
+  Maximum:            0.0766792
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+  Acceptance rate:    96.06 %
+
+  Relative Changes in  
+
+  Mean:               0.00616297
+  Variance:           0.0425888
+  Minimum:            0.00554653
+  Maximum:            0.0323471
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0260811
+  Variance:           0.00545984
+  Minimum:            0.0357106
+  Maximum:            8.42177e-06
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+  Acceptance rate:    98.51 %
+
+  Relative Changes in  
+
+  Mean:               0.00292603
+  Variance:           0.0282021
+  Minimum:            0.0222993
+  Maximum:            0.0444163
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0197484
+  Variance:           0.0153061
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    92.14 %
+
+  Relative Changes in  
+
+  Mean:               0.0082347
+  Variance:           0.109483
+  Minimum:            0
+  Maximum:            0.102158
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0390152
+  Variance:           0.248063
+  Minimum:            0
+  Maximum:            0
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    93.64 %
+
+  Relative Changes in  
+
+  Mean:               0.0275004
+  Variance:           0.0296315
+  Minimum:            0.0503444
+  Maximum:            0.0803006
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0269257
+  Variance:           0.156759
+  Minimum:            0.163528
+  Maximum:            0.000204176
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Random effect of kgs4
+
+  Acceptance rate:    98.05 %
+
+  Relative Changes in  
+
+  Mean:               0.0170942
+  Variance:           0.0313439
+  Minimum:            0.0717355
+  Maximum:            0.0738636
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of random effect of kgs4
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.04107
+  Variance:           0.492949
+  Minimum:            4.50673e-05
+  Maximum:            0.103746
+
+
+
+  RANDOM_EFFECTS_sigma2: linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0210441
+  Variance:           0.0131971
+  Minimum:            0.135543
+  Maximum:            0.194506
+
+
+
+  RANDOM_EFFECTS_sigma2: variance of linear effects with ssvs prior
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0947966
+  Variance:           0.467478
+  Minimum:            0.552791
+  Maximum:            0.580744
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.167473
+  Variance:           0.121076
+  Minimum:            0.00361714
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of baujahr_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.327468
+  Variance:           0.331338
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.151509
+  Variance:           0.0353277
+  Minimum:            0.103528
+  Maximum:            0.132704
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of rating_s
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0360331
+  Variance:           0.280569
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0300918
+  Variance:           0.0202603
+  Minimum:            0.0821074
+  Maximum:            0.0789365
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0
+  Variance:           0
+  Minimum:            0
+  Maximum:            0
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of spatial effect of kgs4a
+
+  Acceptance rate:    100 %
+
+  Relative Changes in  
+
+  Mean:               0.0129458
+  Variance:           0.0351497
+  Minimum:            0.0523384
+  Maximum:            0.178095
+
+
+  ITERATION: 12000
+
+SIMULATION TERMINATED
+
+SIMULATION RUN TIME: 38 minutes 26 seconds
+
+
+ESTIMATION RESULTS:
+
+
+MCMCREG OBJECT b: MAIN mu REGRESSION_pqm_s
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     1.07985        0.0512781      0.964301       1.0958         1.14644        
+
+    Acceptance rate:    100 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects.res
+
+
+  MAIN_mu_REGRESSION_pqm_s: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     -0.182181      0.00715003     -0.195289      -0.182133      -0.168257      
+    grstfl_s  0.144963       0.0038845      0.137501       0.144861       0.152506       
+    baujahr_s 0.402164       0.0350269      0.316431       0.40569        0.464026       
+    rating_s  -0.706056      0.0270043      -0.759836      -0.704578      -0.655714      
+
+    Acceptance rate:    99.25 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  MAIN_mu_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.601615       1.13071        0.00993863     0.191666       3.84055        
+    grstfl_s  0.283023       0.500107       0.00709756     0.100794       1.74704        
+    baujahr_s 0.445826       0.619954       0.0372068      0.243635       2.18777        
+    rating_s  0.475592       0.439477       0.0805361      0.337023       1.72255        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.999091       0.0301374      1              1              1              
+    grstfl_s  1              0              1              1              1              
+    baujahr_s 1              0              1              1              1              
+    rating_s  1              0              1              1              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.99922        0.0138639      0.99988        1              1              
+    grstfl_s  0.999492       0.00771269     0.999957       1              1              
+    baujahr_s 1              0              1              1              1              
+    rating_s  1              0              1              1              1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.831174
+    Std. dev.:      0.148732
+    2.5% Quantile:  0.447024
+    10% Quantile:   0.613253
+    50% Quantile:   0.872245
+    90% Quantile:   0.977474
+    97.5% Quantile: 0.99391
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_omega.res
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_wfl_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_wfl_s.res
+
+    Mean effects evaluated at wfl_s=-0.0122165 with value -0.0323650997312249
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.94318
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.59722
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00346197
+    Std. dev.:      0.00286431
+    2.5% Quantile:  0.000257029
+    10% Quantile:   0.000704247
+    50% Quantile:   0.00279408
+    90% Quantile:   0.00696267
+    97.5% Quantile: 0.0102257
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.94           0.237487       0              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.938117       0.206328       0.0918225      1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0299414
+    Std. dev.:      0.0186909
+    2.5% Quantile:  0.0121524
+    10% Quantile:   0.0152072
+    50% Quantile:   0.0253445
+    90% Quantile:   0.049623
+    97.5% Quantile: 0.0729571
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.657714
+    Std. dev.:      0.24662
+    2.5% Quantile:  0.113944
+    10% Quantile:   0.28941
+    50% Quantile:   0.709055
+    90% Quantile:   0.948435
+    97.5% Quantile: 0.987544
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_omega.res
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_grstfl_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_grstfl_s.res
+
+    Mean effects evaluated at grstfl_s=2e-05 with value 0.15891267617565
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.95905
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.60194
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.000755941
+    Std. dev.:      0.000641952
+    2.5% Quantile:  0.000208257
+    10% Quantile:   0.000299988
+    50% Quantile:   0.000576209
+    90% Quantile:   0.00135846
+    97.5% Quantile: 0.00243162
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    grstfl_s  0.672727       0.469218       0              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    grstfl_s  0.669633       0.377719       0.0113642      0.898901       1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0362482
+    Std. dev.:      0.0263547
+    2.5% Quantile:  0.0121566
+    10% Quantile:   0.0156588
+    50% Quantile:   0.0295066
+    90% Quantile:   0.0599089
+    97.5% Quantile: 0.094756
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.555235
+    Std. dev.:      0.283787
+    2.5% Quantile:  0.0483744
+    10% Quantile:   0.140238
+    50% Quantile:   0.576349
+    90% Quantile:   0.924853
+    97.5% Quantile: 0.97891
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_omega.res
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_baujahr_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_baujahr_s.res
+
+    Mean effects evaluated at baujahr_s=-0.0150189 with value -0.252175030159855
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.64569
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.36358
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Mean:           1.26726
+    Std. dev.:      0.379339
+    2.5% Quantile:  0.711004
+    10% Quantile:   0.837137
+    50% Quantile:   1.21095
+    90% Quantile:   1.77749
+    97.5% Quantile: 2.2027
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.166691
+    Std. dev.:      0.100885
+    2.5% Quantile:  0.0598585
+    10% Quantile:   0.0794443
+    50% Quantile:   0.141613
+    90% Quantile:   0.285951
+    97.5% Quantile: 0.42622
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.658002
+    Std. dev.:      0.238898
+    2.5% Quantile:  0.123083
+    10% Quantile:   0.293369
+    50% Quantile:   0.698914
+    90% Quantile:   0.939214
+    97.5% Quantile: 0.985259
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega.res
+
+
+
+  MAIN_mu_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_rating_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_rating_s.res
+
+    Mean effects evaluated at rating_s=0.0134616 with value -0.701608554047688
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.73868
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.40698
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0190908
+    Std. dev.:      0.0108392
+    2.5% Quantile:  0.00635129
+    10% Quantile:   0.00896197
+    50% Quantile:   0.0163748
+    90% Quantile:   0.0327576
+    97.5% Quantile: 0.0463042
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  1              6.35683e-06    1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0299949
+    Std. dev.:      0.0166367
+    2.5% Quantile:  0.0123658
+    10% Quantile:   0.0156102
+    50% Quantile:   0.026131
+    90% Quantile:   0.0471761
+    97.5% Quantile: 0.0718365
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.667262
+    Std. dev.:      0.238152
+    2.5% Quantile:  0.155456
+    10% Quantile:   0.330501
+    50% Quantile:   0.706384
+    90% Quantile:   0.956725
+    97.5% Quantile: 0.991735
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_omega.res
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Random effect of kgs5
+
+    Acceptance rate:    100 %
+
+    Results are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_random_effect_of_kgs5.res
+
+    Mean effects evaluated at kgs5=5382    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.50211
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.85728
+
+
+
+  MAIN_mu_REGRESSION_pqm_s: Variance of random effect of kgs5
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0111247
+    Std. dev.:      0.00416373
+    2.5% Quantile:  0.00312264
+    10% Quantile:   0.00585398
+    50% Quantile:   0.0109409
+    90% Quantile:   0.0167282
+    97.5% Quantile: 0.0199832
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_random_effect_of_kgs5.res
+
+
+  PREDICTED VALUES: 
+
+    Results for the predictor, mean are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_predict.res
+
+
+  ESTIMATION RESULT FOR THE DEVIANCE: 
+
+    Mean:           147739.7
+    Std. Dev:       46.354839
+    2p5% Quantile:  147650.42
+    10% Quantile:   147679
+    50% Quantile:   147738.26
+    90% Quantile:   147800.64
+    97p5% Quantile: 147832.06
+
+
+    Results for the DIC are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_predict_DIC.res
+
+  ESTIMATION RESULTS FOR THE DIC: 
+
+    Deviance(bar_mu):           146923.47
+    pD:                         816.2319
+    DIC:                        148555.93
+
+
+
+MCMCREG OBJECT b: RANDOM EFFECTS mu REGRESSION
+
+
+  RANDOM_EFFECTS_mu: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s -0.020125      0.0170655      -0.0558897     -0.018645      0.00610946     
+    rating_s  -0.170314      0.041078       -0.252597      -0.172009      -0.0823556     
+
+    Acceptance rate:    100 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  RANDOM_EFFECTS_mu: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.079449       0.512809       3.11324e-06    0.000610195    0.844041       
+    rating_s  0.587368       1.23034        0.00236834     0.152801       3.77211        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.29           0.453762       0              0              1              
+    rating_s  0.923636       0.265579       0              1              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.28411        0.398109       0.00254585     0.0537629      1              
+    rating_s  0.927036       0.242431       0.0200412      1              1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.556861
+    Std. dev.:      0.250591
+    2.5% Quantile:  0.0956243
+    10% Quantile:   0.185399
+    50% Quantile:   0.572552
+    90% Quantile:   0.895706
+    97.5% Quantile: 0.970331
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_omega.res
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_nonlinear_pspline_effect_of_baujahr_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_nonlinear_pspline_effect_of_baujahr_s.res
+
+    Mean effects evaluated at baujahr_s=-0.00323179266666868 with value -0.0633673026437877
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.7533
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.53829
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.000184558
+    Std. dev.:      0.000624518
+    2.5% Quantile:  1.56418e-06
+    10% Quantile:   1.17908e-05
+    50% Quantile:   7.22196e-05
+    90% Quantile:   0.000302459
+    97.5% Quantile: 0.00116373
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.155455       0.362337       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.151527       0.24919        0.00112562     0.0486975      0.999615       
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0319386
+    Std. dev.:      0.0175581
+    2.5% Quantile:  0.0127535
+    10% Quantile:   0.016406
+    50% Quantile:   0.0273742
+    90% Quantile:   0.0518754
+    97.5% Quantile: 0.0827909
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.375176
+    Std. dev.:      0.259913
+    2.5% Quantile:  0.0159876
+    10% Quantile:   0.0593985
+    50% Quantile:   0.335453
+    90% Quantile:   0.754707
+    97.5% Quantile: 0.92595
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega.res
+
+
+
+  RANDOM_EFFECTS_mu:  Nonlinear effect (P-spline) of rating_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_nonlinear_pspline_effect_of_rating_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_nonlinear_pspline_effect_of_rating_s.res
+
+    Mean effects evaluated at rating_s=0.00178544181114891 with value -0.230184181317753
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.92361
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.56591
+
+
+
+  RANDOM_EFFECTS_mu: Variance of nonlinear effect of rating_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0232669
+    Std. dev.:      0.0145407
+    2.5% Quantile:  0.00516354
+    10% Quantile:   0.00904563
+    50% Quantile:   0.0196214
+    90% Quantile:   0.0421882
+    97.5% Quantile: 0.0608544
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  0.99997        0.000848519    1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0305495
+    Std. dev.:      0.0158583
+    2.5% Quantile:  0.0126004
+    10% Quantile:   0.0163204
+    50% Quantile:   0.0262038
+    90% Quantile:   0.0499392
+    97.5% Quantile: 0.0690789
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.663605
+    Std. dev.:      0.237991
+    2.5% Quantile:  0.138774
+    10% Quantile:   0.30388
+    50% Quantile:   0.713689
+    90% Quantile:   0.942828
+    97.5% Quantile: 0.984155
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_omega.res
+
+
+
+  RANDOM_EFFECTS_mu: Spatial effect (MRF) of kgs05a
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_spatial_MRF_effect_of_kgs05a_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_spatial_MRF_effect_of_kgs05a.res
+
+    Mean effects evaluated at kgs05a=8336 with value 0.339914241818043
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.77515
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.98752
+
+
+
+  RANDOM_EFFECTS_mu: Variance of spatial effect of kgs05a
+
+    Acceptance rate:    100 %
+
+    Mean:           0.109084
+    Std. dev.:      0.0202616
+    2.5% Quantile:  0.0714827
+    10% Quantile:   0.0832426
+    50% Quantile:   0.108417
+    90% Quantile:   0.134535
+    97.5% Quantile: 0.153379
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    kgs05a    1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    kgs05a    1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0960968
+    Std. dev.:      0.0471994
+    2.5% Quantile:  0.0399022
+    10% Quantile:   0.0504816
+    50% Quantile:   0.0865722
+    90% Quantile:   0.153816
+    97.5% Quantile: 0.218104
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.669544
+    Std. dev.:      0.240866
+    2.5% Quantile:  0.142236
+    10% Quantile:   0.311051
+    50% Quantile:   0.705114
+    90% Quantile:   0.949958
+    97.5% Quantile: 0.98656
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_omega.res
+
+
+
+MCMCREG OBJECT b: MAIN sigma2 REGRESSION_pqm_s
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    const     -0.568642      0.083499       -0.73042       -0.5638        -0.41908       
+
+    Acceptance rate:    99.74 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects.res
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     -0.240951      0.0157873      -0.273495      -0.24052       -0.211864      
+    grstfl_s  0.216945       0.00767526     0.201816       0.216959       0.231981       
+    baujahr_s 0.279947       0.0583551      0.161521       0.279368       0.408946       
+    rating_s  -0.593694      0.0414816      -0.675586      -0.594897      -0.513293      
+
+    Acceptance rate:    89.9 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  MAIN_sigma2_REGRESSION_pqm_s: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.622435       1.12452        0.0166568      0.224922       3.70501        
+    grstfl_s  0.385684       0.628224       0.0143822      0.167369       1.98512        
+    baujahr_s 0.338292       0.479339       0.0162224      0.174386       1.83132        
+    rating_s  0.421089       0.396986       0.0594233      0.287334       1.49267        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     1              0              1              1              1              
+    grstfl_s  1              0              1              1              1              
+    baujahr_s 1              0              1              1              1              
+    rating_s  1              0              1              1              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.999706       0.0095368      1              1              1              
+    grstfl_s  0.999953       0.00112451     1              1              1              
+    baujahr_s 0.999992       0.000251356    1              1              1              
+    rating_s  1              0              1              1              1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.837942
+    Std. dev.:      0.134077
+    2.5% Quantile:  0.491135
+    10% Quantile:   0.646744
+    50% Quantile:   0.871377
+    90% Quantile:   0.977013
+    97.5% Quantile: 0.995303
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_omega.res
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of wfl_s
+
+    Acceptance rate:    96.06 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_wfl_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_wfl_s.res
+
+    Mean effects evaluated at wfl_s=-0.0122165 with value -0.191251548877951
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.95564
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.55992
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of wfl_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0159457
+    Std. dev.:      0.0123809
+    2.5% Quantile:  0.00366509
+    10% Quantile:   0.00536494
+    50% Quantile:   0.0128213
+    90% Quantile:   0.0298387
+    97.5% Quantile: 0.0491291
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    wfl_s     0.999989       0.00034694     1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0292374
+    Std. dev.:      0.0142892
+    2.5% Quantile:  0.0122206
+    10% Quantile:   0.0156226
+    50% Quantile:   0.0259948
+    90% Quantile:   0.0458192
+    97.5% Quantile: 0.0652992
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.663632
+    Std. dev.:      0.238414
+    2.5% Quantile:  0.147936
+    10% Quantile:   0.308825
+    50% Quantile:   0.709169
+    90% Quantile:   0.94978
+    97.5% Quantile: 0.982937
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_omega.res
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of grstfl_s
+
+    Acceptance rate:    98.51 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_grstfl_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_grstfl_s.res
+
+    Mean effects evaluated at grstfl_s=2e-05 with value 0.0315453959175009
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.9311
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.5585
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of grstfl_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.000422778
+    Std. dev.:      0.000569774
+    2.5% Quantile:  7.04055e-05
+    10% Quantile:   0.000105518
+    50% Quantile:   0.000254858
+    90% Quantile:   0.000779826
+    97.5% Quantile: 0.00211553
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    grstfl_s  0.381818       0.485832       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    grstfl_s  0.373296       0.37594        0.0035306      0.181551       1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0352321
+    Std. dev.:      0.0220895
+    2.5% Quantile:  0.0131457
+    10% Quantile:   0.0172933
+    50% Quantile:   0.0298511
+    90% Quantile:   0.0588847
+    97.5% Quantile: 0.0906359
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.460537
+    Std. dev.:      0.285247
+    2.5% Quantile:  0.0211128
+    10% Quantile:   0.0840615
+    50% Quantile:   0.445512
+    90% Quantile:   0.860257
+    97.5% Quantile: 0.974221
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_omega.res
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of baujahr_s
+
+    Acceptance rate:    92.13 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_baujahr_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_baujahr_s.res
+
+    Mean effects evaluated at baujahr_s=-0.0150189 with value -0.179832210347108
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.79444
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.44137
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Mean:           1.07373
+    Std. dev.:      0.516875
+    2.5% Quantile:  0.27112
+    10% Quantile:   0.51469
+    50% Quantile:   0.990728
+    90% Quantile:   1.70879
+    97.5% Quantile: 2.33899
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.14688
+    Std. dev.:      0.0985549
+    2.5% Quantile:  0.0400281
+    10% Quantile:   0.058069
+    50% Quantile:   0.1223
+    90% Quantile:   0.264684
+    97.5% Quantile: 0.377462
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.682764
+    Std. dev.:      0.229116
+    2.5% Quantile:  0.177319
+    10% Quantile:   0.341993
+    50% Quantile:   0.724182
+    90% Quantile:   0.952801
+    97.5% Quantile: 0.988416
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega.res
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s:  Nonlinear effect (P-spline) of rating_s
+
+    Acceptance rate:    93.64 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_rating_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_rating_s.res
+
+    Mean effects evaluated at rating_s=0.0134616 with value -0.381420043730275
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.77367
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.45602
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of nonlinear effect of rating_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0747498
+    Std. dev.:      0.042471
+    2.5% Quantile:  0.0203703
+    10% Quantile:   0.0310502
+    50% Quantile:   0.0642346
+    90% Quantile:   0.132266
+    97.5% Quantile: 0.179344
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0357821
+    Std. dev.:      0.0175797
+    2.5% Quantile:  0.0144713
+    10% Quantile:   0.0180408
+    50% Quantile:   0.0324233
+    90% Quantile:   0.0561316
+    97.5% Quantile: 0.0781533
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.670048
+    Std. dev.:      0.240034
+    2.5% Quantile:  0.170168
+    10% Quantile:   0.306732
+    50% Quantile:   0.71826
+    90% Quantile:   0.951794
+    97.5% Quantile: 0.985967
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_omega.res
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Random effect of kgs4
+
+    Acceptance rate:    98.05 %
+
+    Results are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_random_effect_of_kgs4.res
+
+    Mean effects evaluated at kgs4=5382    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.68415
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.99375
+
+
+
+  MAIN_sigma2_REGRESSION_pqm_s: Variance of random effect of kgs4
+
+    Acceptance rate:    100 %
+
+    Mean:           0.0294738
+    Std. dev.:      0.00858095
+    2.5% Quantile:  0.0132037
+    10% Quantile:   0.0189111
+    50% Quantile:   0.0288368
+    90% Quantile:   0.0412108
+    97.5% Quantile: 0.047979
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_random_effect_of_kgs4.res
+
+
+
+MCMCREG OBJECT b: RANDOM EFFECTS sigma2 REGRESSION
+
+
+  RANDOM_EFFECTS_sigma2: linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s -0.0156403     0.0209675      -0.0630951     -0.0101068     0.0153572      
+    rating_s  0.0597996      0.0486511      -0.00841604    0.0558053      0.155739       
+
+    Acceptance rate:    100 %
+
+    Results for fixed effects are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs.res
+
+
+    Variance parameters:
+
+  RANDOM_EFFECTS_sigma2: variance of linear effects with ssvs prior
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.0482341      0.357754       5.66289e-07    0.000340657    0.361384       
+    rating_s  0.190236       0.707145       7.51368e-06    0.00251993     2.05943        
+
+
+    Results for linear effects variance parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_var.res
+
+
+    Inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.176364       0.381129       0              0              1              
+    rating_s  0.418182       0.49326        0              0              1              
+
+
+    Results for delta parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_delta.res
+
+
+    Rao-Blackwellised inclusion probabilities:
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.177984       0.339313       0.000571005    0.0199841      1              
+    rating_s  0.414774       0.468615       0.00061676     0.0610369      1              
+
+
+    Results for Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_delta.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.401403
+    Std. dev.:      0.268371
+    2.5% Quantile:  0.0145287
+    10% Quantile:   0.0621895
+    50% Quantile:   0.364252
+    90% Quantile:   0.794088
+    97.5% Quantile: 0.939814
+
+
+    Results for linear effects omega parameters are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_omega.res
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_nonlinear_pspline_effect_of_baujahr_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_nonlinear_pspline_effect_of_baujahr_s.res
+
+    Mean effects evaluated at baujahr_s=-0.00323179266666868 with value -0.0261855570758132
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.88314
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.67456
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of baujahr_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.000282325
+    Std. dev.:      0.000803483
+    2.5% Quantile:  3.10046e-08
+    10% Quantile:   1.22419e-06
+    50% Quantile:   4.84638e-05
+    90% Quantile:   0.000630184
+    97.5% Quantile: 0.00273243
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.196364       0.397247       0              0              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    baujahr_s 0.190493       0.307644       0.00127848     0.0448176      1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.031216
+    Std. dev.:      0.0164394
+    2.5% Quantile:  0.0118488
+    10% Quantile:   0.01604
+    50% Quantile:   0.0268192
+    90% Quantile:   0.0505529
+    97.5% Quantile: 0.0733656
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.407264
+    Std. dev.:      0.265937
+    2.5% Quantile:  0.0154778
+    10% Quantile:   0.0774614
+    50% Quantile:   0.371024
+    90% Quantile:   0.805378
+    97.5% Quantile: 0.935971
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega.res
+
+
+
+  RANDOM_EFFECTS_sigma2:  Nonlinear effect (P-spline) of rating_s
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_nonlinear_pspline_effect_of_rating_s_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_nonlinear_pspline_effect_of_rating_s.res
+
+    Mean effects evaluated at rating_s=0.00178544181114891 with value 0.0473168100212567
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 1.81168
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.56664
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of nonlinear effect of rating_s
+
+    Acceptance rate:    100 %
+
+    Mean:           0.00345761
+    Std. dev.:      0.00554225
+    2.5% Quantile:  1.76204e-05
+    10% Quantile:   5.3454e-05
+    50% Quantile:   0.000926076
+    90% Quantile:   0.0100113
+    97.5% Quantile: 0.0187326
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  0.628182       0.48329        0              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    rating_s  0.625367       0.436183       0.00340321     0.993758       1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0329018
+    Std. dev.:      0.0208334
+    2.5% Quantile:  0.0123882
+    10% Quantile:   0.0159086
+    50% Quantile:   0.0275441
+    90% Quantile:   0.0552949
+    97.5% Quantile: 0.0832188
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.541952
+    Std. dev.:      0.284887
+    2.5% Quantile:  0.025946
+    10% Quantile:   0.130913
+    50% Quantile:   0.548413
+    90% Quantile:   0.917096
+    97.5% Quantile: 0.976522
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_omega.res
+
+
+
+  RANDOM_EFFECTS_sigma2: Spatial effect (MRF) of kgs4a
+
+    Acceptance rate:    100 %
+
+    Estimated parameters are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_spatial_MRF_effect_of_kgs4a_param.res
+
+    Function estimates are stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_spatial_MRF_effect_of_kgs4a.res
+
+    Mean effects evaluated at kgs4a=8336 with value 0.448043159791154
+
+    Scaling factor to blow up pointwise 95 percent credible intervals
+    to obtain simultaneous credible intervals: 2.69707
+
+    Scaling factor to blow up pointwise 80 percent credible intervals
+    to obtain simultaneous credible intervals: 1.99175
+
+
+
+  RANDOM_EFFECTS_sigma2: Variance of spatial effect of kgs4a
+
+    Acceptance rate:    100 %
+
+    Mean:           0.156685
+    Std. dev.:      0.0343415
+    2.5% Quantile:  0.0929125
+    10% Quantile:   0.113755
+    50% Quantile:   0.156154
+    90% Quantile:   0.201836
+    97.5% Quantile: 0.228739
+
+    Results for the variance component are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a.res
+
+
+    Inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    kgs4a     1              0              1              1              1              
+
+    Results for the inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_delta.res
+
+
+    Rao-Blackwellised inclusion probability:
+
+
+    Variable  mean           Std. Dev.      2.5% quant.    median         97.5% quant.   
+    kgs4a     1              0              1              1              1              
+
+    Results for the Rao-Blackwellised inclusion probabilities are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_delta_prob.res
+
+
+    Variance hyperparameter psi2: 
+
+    Mean:           0.0996841
+    Std. dev.:      0.0495293
+    2.5% Quantile:  0.042973
+    10% Quantile:   0.0525224
+    50% Quantile:   0.0880066
+    90% Quantile:   0.157203
+    97.5% Quantile: 0.235107
+
+
+    Results for psi2 are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_psi2.res
+
+
+    Inclusion probability parameter omega:
+
+    Mean:           0.670322
+    Std. dev.:      0.231787
+    2.5% Quantile:  0.156915
+    10% Quantile:   0.327516
+    50% Quantile:   0.710585
+    90% Quantile:   0.950766
+    97.5% Quantile: 0.98544
+
+
+    Results for the inclusion probability parameter omega are also stored in file
+    /home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_omega.res
+
+
+  FILES FOR VISUALIZING RESULTS:
+
+    STATA DO-FILE
+
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_stata.do
+
+    R-FILE
+
+    /home/mcarlan/VarSel/immo2/results/effsel_mu_level1_R.r
+
+> b.getsample
+
+Storing sampled parameters...
+Sampled parameters are stored in file(s):
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_nonlinear_pspline_effect_of_rating_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_nonlinear_pspline_effect_of_rating_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_spatial_MRF_effect_of_kgs4a_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level2_RANDOM_EFFECTS_sigma2_variance_of_spatial_MRF_effect_of_kgs4a_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_wfl_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_grstfl_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_nonlinear_pspline_effect_of_rating_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_random_effect_of_kgs4_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_random_effect_of_kgs4_sample2.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_sigma2_level1_MAIN_sigma2_REGRESSION_pqm_s_variance_of_random_effect_of_kgs4_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_nonlinear_pspline_effect_of_rating_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_nonlinear_pspline_effect_of_rating_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_spatial_MRF_effect_of_kgs05a_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level2_RANDOM_EFFECTS_mu_variance_of_spatial_MRF_effect_of_kgs05a_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_var_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_LinearEffects_ssvs_omega_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_wfl_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_wfl_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_grstfl_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_grstfl_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_baujahr_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_nonlinear_pspline_effect_of_rating_s_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_delta_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_omega_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_nonlinear_pspline_effect_of_rating_s_psi2_sample.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_random_effect_of_kgs5_sample.raw
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_random_effect_of_kgs5_sample2.raw
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_MAIN_mu_REGRESSION_pqm_s_variance_of_random_effect_of_kgs5_sample.raw
+
+File for convenient visualization of 
+sampling paths using the Windows version of BayesX is stored in
+
+/home/mcarlan/VarSel/immo2/results/effsel_mu_level1_samples.prg
+
+
+> drop d d2 m b
+
+> logclose
+

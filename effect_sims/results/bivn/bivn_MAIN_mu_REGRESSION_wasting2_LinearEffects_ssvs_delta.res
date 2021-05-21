@@ -1,0 +1,17 @@
+paramnr varname pmean pstd pqu2p5 pqu10 pmed pqu90 pqu97p5 pcat95 pcat80
+1   mbmi2   0.977   0.149903   1   1   1   1   1   1   1   
+2   mage2   0.014   0.11749   0   0   0   0   0   0   0   
+3   cage2   0.018   0.132951   0   0   0   0   0   0   0   
+4   csex   0.024   0.153049   0   0   0   0   0   0   0   
+5   electricity   0.007   0.0833727   0   0   0   0   0   0   0   
+6   cbirthorder   0.019   0.136525   0   0   0   0   0   0   0   
+7   edupartner   0.013   0.113274   0   0   0   0   0   0   0   
+8   munemployed   0.013   0.113274   0   0   0   0   0   0   0   
+9   mresidence   0.039   0.193595   0   0   0   0   1   0   0   
+10   car   0.014   0.11749   0   0   0   0   0   0   0   
+11   motorcycle   0.014   0.11749   0   0   0   0   0   0   0   
+12   radio   0.005   0.0705337   0   0   0   0   0   0   0   
+13   television   0.014   0.11749   0   0   0   0   0   0   0   
+14   ctwin   0.216   0.411514   0   0   0   1   1   0   0   
+15   refrigerator   0.006   0.0772269   0   0   0   0   0   0   0   
+16   bicycle   0.014   0.11749   0   0   0   0   0   0   0   

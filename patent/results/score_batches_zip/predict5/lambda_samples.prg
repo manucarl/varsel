@@ -1,0 +1,43 @@
+% usefile ./results/score_batches_zip/predict5/lambda_samples.prg
+
+dataset _d
+graph _g
+
+_d.infile using ./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_LinearEffects_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/pi_MAIN_pi_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_LinearEffects_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_ncountrys_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_ncountrys_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_years_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_years_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_nonlinear_pspline_effect_of_nclaimss_sample.ps using _d
+
+_d.infile using ./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_sample.raw
+_g.plotsample , outfile=./results/score_batches_zip/predict5/lambda_MAIN_lambda_REGRESSION_ncit_variance_of_nonlinear_pspline_effect_of_nclaimss_sample.ps using _d
+
+drop _d _g
+

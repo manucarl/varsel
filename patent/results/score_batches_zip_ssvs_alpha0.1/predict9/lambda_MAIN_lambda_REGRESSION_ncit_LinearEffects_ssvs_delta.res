@@ -1,0 +1,9 @@
+paramnr varname pmean pstd pqu2p5 pqu10 pmed pqu90 pqu97p5 pcat95 pcat80
+1   years   0.156   0.362855   0   0   0   1   1   0   0   
+2   ncountrys   0.442   0.496625   0   0   0   1   1   0   0   
+3   nclaimss   0.972   0.164973   0   1   1   1   1   0   1   
+4   ustwin   0.157   0.363801   0   0   0   1   1   0   0   
+5   opp   0.488   0.499856   0   0   0   1   1   0   0   
+6   biopharm   0.312   0.46331   0   0   0   1   1   0   0   
+7   patus   0.188   0.390712   0   0   0   1   1   0   0   
+8   patgsgr   0.191   0.393089   0   0   0   1   1   0   0   
