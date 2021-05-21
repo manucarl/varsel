@@ -11,15 +11,17 @@ All results where obtained via BayesX.
 
 ##  [Housing Prices](immo)
 **Effect Selection in hierarchical location-scale model with spatial heterogeneity**
-![image](/immo/immo_maps.png)
 Data is not available publicly, unfortunately.
+
+![image](/immo/immo_maps.png)<br/>
 
 ---
 
 ##  [Nigeria Undernutrition](nigeria)
-**Effect Selection for predictors of all parameters (mu1, mu2, sigma1, sigma2, rho) in bivariate Gaussian location-scale model of undernutrition scores**
-![image](/nigeria/niger_bivn_nonlin.png)
+**Effect Selection for predictors of all parameters (mu1, mu2, sigma1, sigma2, rho) in bivariate Gaussian location-scale model of undernutrition scores**<br/>
 Data is not available publicly, unfortunately.
+
+![image](/nigeria/niger_bivn_nonlin.png)
 
 ---
 
