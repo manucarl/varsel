@@ -1,8 +1,12 @@
 # Applications appearing in our [Bayesian Effect Selection paper](https://projecteuclid.org/journals/bayesian-analysis/volume-16/issue-2/Bayesian-Effect-Selection-in-Structured-Additive-Distributional-Regression-Models/10.1214/20-BA1214.full)
 
 
-1. [House Prices](##house prices)
-
+1. [Section 1](#section-1)
+2. [Section 2](#section-2)
+    - [Subsection a](#subsection-a)
+    - [Subsection b](#subsection-b)
+    
+    
 ##  [house prices](immo)
 **Effect Selection in hierarchical location-scale model with spatial heterogenity**
 Data ist not available publicly, unfortunately.
