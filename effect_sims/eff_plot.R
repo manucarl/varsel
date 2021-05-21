@@ -13,7 +13,9 @@
 
 
 
-library(tidyverse)
+library(dplyr)
+library(rlang)
+library(ggplot2)
 
 rm(list = ls())
 
@@ -70,4 +72,4 @@ p <- ggplot(gg_data) + geom_line(aes(x=x, y=f, group=as.numeric(replication)), a
   geom_line(data= gg_data %>% filter(replication == 0), aes(x=x, y=f), col= "red", size=1)
 
 p
-ggsave(paste0("f",paste0(fs,collapse="_") ,".png"), plot=p)
+# ggsave(paste0("f",paste0(fs,collapse="_") ,".png"), plot=p)
