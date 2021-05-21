@@ -17,7 +17,7 @@ Data is not available publicly, unfortunately.
 
 ---
 
-. ##  [Nigeria Undernutrition](nigeria)
+##  [Nigeria Undernutrition](nigeria)
 **Effect Selection for predictors of all parameters ($\mu$) in bivariate Gaussian location-scale model of undernutrition scores**
 Data is not available publicly, unfortunately.
 ![image](/nigeria/niger_bivn_nonlin.png)
