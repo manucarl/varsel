@@ -16,14 +16,14 @@ Data ist not available publicly, unfortunately.
 
 ---
 
-##  [Nigeria Undernutrition](nigeria)
+. ##  [Nigeria Undernutrition](nigeria)
 **Effect Selection for predictors of all parameters ($\mu$) in bivariate Gaussian location-scale model of undernutrition scores**
 Data ist not available publicly, unfortunately.
 ![image](/nigeria/niger_bivn_nonlin.png)
 
 ---
 
-##  [Patent](nigeria)
+2. ##  [Patent](nigeria)
 **Effect Selection for predictors of lambda and pi in zero-inflated Poisson model on patent citation data. Calculates various (proper) scores for 10-Fold CV.**
 Data is available.
 
