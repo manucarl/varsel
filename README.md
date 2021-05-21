@@ -3,6 +3,6 @@
 ##  [House Prices](immo)
 **Effect Selection in hierarchical location-scale model with spatial heterogenity**
 
-![image](/immo/immo_maps.pdf)
+![image](/immo/immo_maps.png)
 
 ---
