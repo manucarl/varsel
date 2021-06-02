@@ -10,7 +10,7 @@ All results where obtained via BayesX.
 3. Simulated Recomposed Effect Samples
 
 ##  [Housing Prices](immo)
-**Effect Selection in hierarchical location-scale model with spatial heterogeneity**
+**Effect Selection in hierarchical location-scale model with spatial heterogeneity**<br/>
 Data is not available publicly, unfortunately.
 
 ![image](/immo/immo_maps.png)<br/>
