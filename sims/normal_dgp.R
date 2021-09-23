@@ -15,15 +15,25 @@
 library(BayesX)
 library("scales")
 
+######################################################################################################
+# simulation settings ################################################################################
+######################################################################################################
+
 set.seed(123)
 # normal family
 family <- "normal"
 
-# unsparse scenario
-k <- 16           
-######################################################################################################
-# ad hoc settings ####################################################################################
-######################################################################################################
+# sparsity scenario
+sparsity <- "unsparse"
+
+ifelse(sparsity == "sparse", p <- 16, p <- 20)
+# should the effects be centered / scaled
+scaling <- TRUE
+centering <- TRUE
+
+# correlation rho of covariates 
+rho <- 0
+
 snr <- 20 # for Gaussian mean model
 
 # number of different y responses
@@ -31,7 +41,6 @@ R <- 150
 
 # observation number of  training data
 n_train <- 200
-
 # size of training data set
 n_test <- 0
 
@@ -112,7 +121,6 @@ regdat <- (data.frame(region,helpdata$falpha))
 ######################################################################################################
 
 
-
 # 4 original functions
 ff1 <- function(x) x
 ff2 <- function(x) x + ((2*x-2)^2)/5.5
@@ -121,77 +129,70 @@ ff4 <- function(x) .5*x + 15*(dnorm((x-.2)/.5) - dnorm(x+.4))
 
 # build design matrix similar to Scheipl
 # draw values of x; 2 digits
-x <- round(runif(n*k, -2, 2),2)
-
-# correlation rho of covariates 
-rho <- 0
+x <- round(runif(n*p, -2, 2),2)
 
 # generate correlation matrix
-S <- rho^as.matrix(dist(1:k))
+S <- rho^as.matrix(dist(1:p))
 
 # generate design matrix
-X <- matrix(x, ncol=k, nrow = n)%*%chol(S)
+X <- matrix(x, ncol=p, nrow = n)%*%chol(S)
 
-colnames(X) <- c(paste("x", 1:k, sep="")) 
+colnames(X) <- c(paste("x", 1:p, sep="")) 
 
 f1 <- ff1(X[,1])
-#f1 <- f1 - mean(f1)
-f1 <- scale(f1)
+f1 <- scale(f1, centering, scaling)
 
 f2 <- ff2(X[,2])
-#f2 <- f2 - mean(f2)
-f2 <- scale(f2)
+f2 <- scale(f2, centering, scaling)
 
 f3 <- ff3(X[,3])
-#f3 <- f3 - mean(f3)
-f3 <- scale(f3)
+f3 <- scale(f3, centering, scaling)
 
 f4 <- ff4(X[,4])
-#f4 <- f4 - mean(f4)
-f4 <- scale(f4)
-
-f5 <- ff1(X[,5])
-#f5 <- f5 - mean(f5)
-f5 <- 1.5 * scale(f5)
-
-f6 <-  ff2(X[,6])
-#f6 <- f6 - mean(f6)
-f6 <- 1.5 *scale(f6)
-
-f7 <-  ff3(X[,7])
-#f7 <- f7 - mean(f7)
-f7 <- 1.5 *scale(f7)
-
-f8 <-  ff4(X[,8])
-#f8 <- f8 - mean(f8)
-f8 <- 1.5 *scale(f8)
-
-f9 <-  ff1(X[,9])
-#f9 <- f9 - mean(f9)
-f9 <- 2 *scale(f9)
-
-f10 <-  ff2(X[,10])
-#f10 <- f10 - mean(f10)
-f10 <- 2 *scale(f10)
-
-f11 <- ff3(X[,11])
-#f11 <- f11 - mean(f11)
-f11 <- 2 * scale(f11)
-
-f12 <- ff4(X[,12]) 
-#f12 <- f12 - mean(f12)
-f12 <- 2 * scale(f12)
+f4 <- scale(f4, centering, scaling)
 
 
+# additive predictor
+if (sparsity == "sparse"){
+  
+  eta <- data.frame(f1 = f1, f2 = f2, f3 = f3, f4 = f4, eta = f1 + f2 + f3 + f4)
+  true_smooths <- c(F,T,T,T, rep(F, p-4))
+  true_lins <- c(T,T,T,T, rep(F, p-4))
+  truth <- c(T,F, T,T, T,T, T,T, rep(F, 2*(p-4)))
 
-# additive predictor (unsparse scenario)
-eta <- f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10 + f11 + f12
-
-truthSm <- c(rep(c(F,T,T,T),t=3), rep(F, k-12))
-truthFx <- c(rep(T,12), rep(F, k-12))
-truth <- c(rep(c(T,F, T,T, T,T, T,T),t=3), rep(F, 2*(k-12)))
-
-
+} else { 
+  
+  f5 <- ff1(X[,5])
+  f5 <- 1.5 * scale(f5, centering, scaling)
+  
+  f6 <-  ff2(X[,6])
+  f6 <- 1.5 *scale(f6, centering, scaling)
+  
+  f7 <-  ff3(X[,7])
+  f7 <- 1.5 *scale(f7, centering, scaling)
+  
+  f8 <-  ff4(X[,8])
+  f8 <- 1.5 *scale(f8, centering, scaling)
+  
+  f9 <-  ff1(X[,9])
+  f9 <- 2 *scale(f9, centering, scaling)
+  
+  f10 <-  ff2(X[,10])
+  f10 <- 2 *scale(f10, centering, scaling)
+  
+  f11 <- ff3(X[,11])
+  f11 <- 2 * scale(f11, centering, scaling)
+  
+  f12 <- ff4(X[,12]) 
+  f12 <- 2 * scale(f12, centering, scaling)
+  
+  eta <- data.frame(f1 = f1, f2 = f2, f3 = f3, f4 = f4, f5 = f5, f6 = f6, f7 = f7, f8 = f8, f9 = f9, f10 = f10, f11 = f11, f12 = f12)
+  eta$eta <- rowSums(eta)
+  
+  true_smooths <- c(rep(c(F, T, T, T), 3), rep(F, p-12))
+  true_lins <- c(rep(T, 12), rep(F, p-12))
+  truth <- c(rep(c(T, F, T, T, T, T, T, T), 3), rep(F, 2*(p-12)))
+}
 
 
 n <- n_train + n_test
@@ -218,23 +219,23 @@ if(spatial == T){
   }
   # fspatalpha <- scale(fspatalpha)
   # scale spatial effect in similar range 
-  eta <- eta + 4*fspatalpha
-}else{
-  eta <- eta
-}
+  eta$eta <- eta$eta + 4*fspatalpha
+  
+} else{
+  NULL
+  }
 
 
 # responses
-y <- matrix(ncol=R, nrow=(n), 0)  
-
+y <- matrix(ncol=R, nrow = n, 0)  
 
 
 ####################################### NORMAL
 for(i in 1:R){
   eps <- scale(rnorm(n = n))
   eps <- as.vector(eps)
-  eps <- sqrt(var(eta)/snr)*eps
-  y[,i] <- round(eta + eps,5)
+  eps <- sqrt(var(eta$eta)/snr)*eps
+  y[,i] <- round(eta$eta + eps,5)
 }
 
 
@@ -244,16 +245,9 @@ for(i in 1:R){
 # X <- round(scale(X),2)
 colnames(y) <- paste0("y", 1:R)
 
-
-data <- data.frame(
-  cbind(
-    X, region, y, eta, w = c(rep(1,n_train), rep(0, n_test))
-    ),
-  f1=f1, f2=f2, f3=f3, f4=f4, f5=f5, f6=f6, f7=f7, f8=f8, f9=f9, f10=f10, f11=f11, f12=f12
-)
-
-
-write.table(data, "effect_sims/data/data.raw", row.names=FALSE, sep=" ", quote=FALSE)
+data <- data.frame(cbind(X, y, region), eta, w = c(rep(1,n_train), rep(0, n_test)))
+ 
+write.table(data, paste0("sims/data/",family,"/n",n,"_", ifelse(spatial, "spatial", "notspatial"), "_rho", rho, "_data.raw"), row.names=FALSE, sep=" ", quote=FALSE)
 
 
 

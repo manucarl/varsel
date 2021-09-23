@@ -42,3 +42,7 @@ vignettes/*.pdf
 /nigeria/data/
 /immo/data/
 /immo/results/
+/sims/sims4nadja/
+/sims/data/
+
+/patent/code/scores_d.R
